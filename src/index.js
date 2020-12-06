@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from "react";
-
 const App = () => {
-  return "ciao";
+  return React.createElement("div", {}, [
+    React.createElement("h1", {}, "TEST"),
+  ]);
 };
 
-export default App;
+ReactDOM.render(React.createElement(App), document.getElementById("root"));
