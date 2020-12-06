@@ -1,0 +1,26 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Personal portofolio application built from scratch using react.js",
+  "main": "src/index.js",
+  "scripts": {
+    "lint": "eslint \"src/**/*.{js,jsx}\" --quiet",
+    "format": "prettier --write \"src/**/*.{js,jsx}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SimoneTedesco/Portfolio.git"
+  },
+  "author": "Simone Tedesco",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SimoneTedesco/Portfolio/issues"
+  },
+  "homepage": "https://github.com/SimoneTedesco/Portfolio#readme",
+  "devDependencies": {
+    "eslint": "^7.15.0",
+    "eslint-config-prettier": "^7.0.0",
+    "prettier": "^2.2.1"
+  }
+}
