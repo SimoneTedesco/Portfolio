@@ -10,7 +10,7 @@ const Label = ({ info: { color, icon, name } }) => (
 const Labels = () => {
   const label = {
     id: Math.random(),
-    icon: "http://placecorgi.com/100",
+    icon: "https://placecorgi.com/100",
     name: "label 1",
     color: "#FFF4DB",
   };

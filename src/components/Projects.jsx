@@ -1,12 +1,12 @@
 import React from "react";
 
 const LIBS = [
-  { id: 1, icon: "http://placecorgi.com/30" },
-  { id: 2, icon: "http://placecorgi.com/30" },
-  { id: 3, icon: "http://placecorgi.com/30" },
-  { id: 4, icon: "http://placecorgi.com/30" },
-  { id: 5, icon: "http://placecorgi.com/30" },
-  { id: 6, icon: "http://placecorgi.com/30" },
+  { id: 1, icon: "https://placecorgi.com/30" },
+  { id: 2, icon: "https://placecorgi.com/30" },
+  { id: 3, icon: "https://placecorgi.com/30" },
+  { id: 4, icon: "https://placecorgi.com/30" },
+  { id: 5, icon: "https://placecorgi.com/30" },
+  { id: 6, icon: "https://placecorgi.com/30" },
 ];
 
 const ProjectCard = ({ info: { image, description, name, libraries } }) => (
@@ -24,7 +24,7 @@ const ProjectCard = ({ info: { image, description, name, libraries } }) => (
 const Projects = () => {
   const project = {
     id: Math.random(),
-    image: "http://placecorgi.com/200",
+    image: "https://placecorgi.com/200",
     name: "project 1",
     description: "project 1 Loremasd asda sdasd asda sda sda",
     // link: "?"
