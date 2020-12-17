@@ -72,7 +72,7 @@ const links = [
 // markup
 const IndexPage = () => (
   <main style={pageStyles}>
-    <h1 className>Io sono Simone Tedesco</h1>
+    <h1>Io sono Simone Tedesco</h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
       iusto consectetur, veniam nemo esse excepturi sint non deleniti
