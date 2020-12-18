@@ -16,7 +16,7 @@ const Labels = () => {
   };
   const list = new Array(5).fill(label);
   return (
-    <div>
+    <div className="flex">
       {list.map((x) => (
         <Label key={x.id} info={x} />
       ))}
