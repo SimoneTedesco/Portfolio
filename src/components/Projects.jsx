@@ -33,6 +33,7 @@ const Projects = () => {
   const list = new Array(10).fill(project);
   return (
     <div>
+      <h3>Projects</h3>
       {list.map((x) => (
         <ProjectCard key={x.id} info={x} />
       ))}
