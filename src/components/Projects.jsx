@@ -18,11 +18,22 @@ const ProjectCard = ({ info: { image, description, name, libraries } }) => (
       }}
       className="bg-transparent bg-no-repeat bg-top transition-all delay-200 duration-1000 hover:bg-bottom"
     />
-    <h2>{name}</h2>
+    <h3 className="text-2xl">{name}</h3>
     {/* quick and awful stuff i'll fix later i promise*/}
-    {libraries.map((x) => (
-      <img src={LIBS.find((y) => y.id === x).icon} />
-    ))}
+    <div className="flex">
+      {libraries.map((x) => {
+        const { id, icon } = LIBS.find((y) => y.id === x);
+        return (
+          <img
+            alt={id}
+            src={icon}
+            className="rounded-full pr-2"
+            width="30px"
+            height="30px"
+          />
+        );
+      })}
+    </div>
     <p>{description}</p>
   </div>
 );
@@ -39,7 +50,7 @@ const Projects = () => {
   const list = new Array(10).fill(project);
   return (
     <div>
-      <h3>Projects</h3>
+      <h2 className="text-4xl">Projects</h2>
       <div className="grid grid-cols-4 gap-4">
         {list.map((x) => (
           <ProjectCard key={x.id} info={x} />

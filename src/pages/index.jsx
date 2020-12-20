@@ -1,7 +1,7 @@
 import React from "react";
 import Labels from "../components/Labels";
 import Projects from "../components/Projects";
-import Contact from "../components/Contact";
+import AboutMe from "../components/AboutMe";
 
 // styles
 const pageStyles = {
@@ -82,7 +82,7 @@ const IndexPage = () => (
 
     <Labels />
     <Projects />
-    <Contact />
+    <AboutMe />
     {/* <title>Home Page</title>
     <h1 style={headingStyles}>
       Congratulations
