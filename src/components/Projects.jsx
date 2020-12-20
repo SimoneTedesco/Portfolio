@@ -10,8 +10,15 @@ const LIBS = [
 ];
 
 const ProjectCard = ({ info: { image, description, name, libraries } }) => (
-  <div>
-    <img src={image} alt={name} />
+  <div className="p-8 bg-gray-500 rounded">
+    <div
+      style={{
+        background: `#fff url(${image}) no-repeat center top`,
+        height: "200px",
+      }}
+      className="transition-all delay-200 duration-1000 asd"
+    ></div>
+    {/* <img src={image} alt={name} className="rounded" /> */}
     <h2>{name}</h2>
     {/* quick and awful stuff i'll fix later i promise*/}
     {libraries.map((x) => (
@@ -24,7 +31,7 @@ const ProjectCard = ({ info: { image, description, name, libraries } }) => (
 const Projects = () => {
   const project = {
     id: Math.random(),
-    image: "https://placecorgi.com/200",
+    image: "https://placecorgi.com/400/500",
     name: "project 1",
     description: "project 1 Loremasd asda sdasd asda sda sda",
     // link: "?"
@@ -34,9 +41,11 @@ const Projects = () => {
   return (
     <div>
       <h3>Projects</h3>
-      {list.map((x) => (
-        <ProjectCard key={x.id} info={x} />
-      ))}
+      <div className="grid grid-cols-4 gap-4">
+        {list.map((x) => (
+          <ProjectCard key={x.id} info={x} />
+        ))}
+      </div>
     </div>
   );
 };
