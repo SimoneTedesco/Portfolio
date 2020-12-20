@@ -5,7 +5,9 @@ module.exports = {
     extend: {},
   },
   variants: {
-    extend: {},
+    extend: {
+      backgroundPosition: ["hover"],
+    },
   },
   plugins: [],
 };

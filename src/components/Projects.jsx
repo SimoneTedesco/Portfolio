@@ -13,12 +13,11 @@ const ProjectCard = ({ info: { image, description, name, libraries } }) => (
   <div className="p-8 bg-gray-500 rounded">
     <div
       style={{
-        background: `#fff url(${image}) no-repeat center top`,
+        "background-image": `url(${image})`,
         height: "200px",
       }}
-      className="transition-all delay-200 duration-1000 asd"
-    ></div>
-    {/* <img src={image} alt={name} className="rounded" /> */}
+      className="bg-transparent bg-no-repeat bg-top transition-all delay-200 duration-1000 hover:bg-bottom"
+    />
     <h2>{name}</h2>
     {/* quick and awful stuff i'll fix later i promise*/}
     {libraries.map((x) => (
