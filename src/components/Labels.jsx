@@ -1,4 +1,5 @@
 import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 
 const Label = ({ info: { color, icon, name } }) => (
   <div
@@ -18,21 +19,32 @@ const Label = ({ info: { color, icon, name } }) => (
   </div>
 );
 
-const Labels = () => {
-  const label = {
-    id: Math.random(),
-    icon: "https://placecorgi.com/40",
-    name: "label 1",
-    color: "#FFF4DB",
-  };
-  const list = new Array(20).fill(label);
-  return (
-    <div className="flex flex-wrap">
-      {list.map((x) => (
-        <Label key={x.id} info={x} />
-      ))}
-    </div>
-  );
-};
+const Labels = () => (
+  <StaticQuery
+    query={graphql`
+      query MyQuery {
+        allMarkdownRemark {
+          edges {
+            node {
+              id
+              frontmatter {
+                name
+                icon
+                color
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={(data) => (
+      <div className="flex flex-wrap">
+        {data.allMarkdownRemark.edges.map(({ node }) => (
+          <Label key={node.id} info={node.frontmatter} />
+        ))}
+      </div>
+    )}
+  />
+);
 
 export default Labels;
