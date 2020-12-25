@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Personal portofolio",
   "scripts": {
-    "develop": "gatsby develop",
+    "netlify": "netlify dev",
     "start": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
