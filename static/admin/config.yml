@@ -2,11 +2,11 @@ backend:
   name: git-gateway
   branch: main # Branch to update (optional; defaults to master)
   commit_messages:
-  create: 'Create {{collection}} “{{slug}}”'
-  update: 'Update {{collection}} “{{slug}}”'
-  delete: 'Delete {{collection}} “{{slug}}”'
-  uploadMedia: '[skip ci] Upload “{{path}}”'
-  deleteMedia: '[skip ci] Delete “{{path}}”'
+  create: "Create {{collection}} “{{slug}}”"
+  update: "Update {{collection}} “{{slug}}”"
+  delete: "Delete {{collection}} “{{slug}}”"
+  uploadMedia: "[skip ci] Upload “{{path}}”"
+  deleteMedia: "[skip ci] Delete “{{path}}”"
 
 media_folder: static/images
 public_folder: /images
@@ -18,6 +18,29 @@ collections:
     create: true
     slug: "{{year}}{{month}}{{day}}-{{slug}}"
     fields:
-      - {label: "Icon", name: "icon", widget: "image"}
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Color", name: "color", widget: "color"}
+      - { label: "Icon", name: "icon", widget: "image" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Color", name: "color", widget: "color" }
+  - name: "project"
+    label: "Project"
+    folder: "src/content/projects"
+    create: true
+    slug: "{{year}}{{month}}{{day}}-{{slug}}"
+    fields:
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Description", name: "description", widget: "markdown" }
+      - { label: "TechStack", name: "techStack", widget: "list", default: [] }
+      - { label: "Link", name: "link", widget: "string" }
+      - {
+          label: "StartDate",
+          name: "startDate",
+          widget: "datetime",
+          time_format: false,
+        }
+      - {
+          label: "EndDate",
+          name: "endDate",
+          widget: "datetime",
+          time_format: false,
+        }

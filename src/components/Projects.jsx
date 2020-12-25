@@ -9,7 +9,7 @@ const LIBS = [
   { id: 6, icon: "https://placecorgi.com/30" },
 ];
 
-const ProjectCard = ({ info: { image, description, name, libraries } }) => (
+const ProjectCard = ({ info: { image, description, name, techStack } }) => (
   <div className="p-8 bg-gray-500 rounded">
     <div
       style={{
@@ -19,9 +19,9 @@ const ProjectCard = ({ info: { image, description, name, libraries } }) => (
       className="bg-transparent bg-no-repeat bg-top transition-all delay-200 duration-1000 hover:bg-bottom"
     />
     <h3 className="text-2xl">{name}</h3>
-    {/* quick and awful stuff i'll fix later i promise*/}
+    {/* quick and awful stuff i'll fix later i promise */}
     <div className="flex">
-      {libraries.map((x) => {
+      {techStack.map((x) => {
         const { id, icon } = LIBS.find((y) => y.id === x);
         return (
           <img
@@ -45,7 +45,7 @@ const Projects = () => {
     name: "project 1",
     description: "project 1 Loremasd asda sdasd asda sda sda",
     // link: "?"
-    libraries: [1, 2, 3, 4],
+    techStack: [1, 2, 3, 4],
   };
   const list = new Array(10).fill(project);
   return (
