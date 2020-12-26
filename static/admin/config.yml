@@ -31,7 +31,7 @@ collections:
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Description", name: "description", widget: "markdown" }
       - { label: "TechStack", name: "techStack", widget: "list", default: [] }
-      - { label: "Link", name: "link", widget: "string" }
+      - { label: "Link", name: "link", widget: "string", required: false }
       - {
           label: "StartDate",
           name: "startDate",
@@ -43,4 +43,5 @@ collections:
           name: "endDate",
           widget: "datetime",
           time_format: false,
+          required: false,
         }
