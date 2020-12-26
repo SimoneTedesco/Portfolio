@@ -22,8 +22,8 @@ const Label = ({ info: { color, icon, name } }) => (
 const Labels = () => (
   <StaticQuery
     query={graphql`
-      query MyQuery {
-        allMarkdownRemark {
+      query getAllLabels {
+        allMarkdownRemark(filter: { fileAbsolutePath: { regex: "/labels/" } }) {
           edges {
             node {
               id
