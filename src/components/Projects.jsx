@@ -10,7 +10,7 @@ const LIBS = [
   { id: 6, icon: "https://placecorgi.com/30" },
 ];
 
-const ProjectCard = ({ info: { image, body, name, techStack, html } }) => (
+const ProjectCard = ({ info: { image, name, techStack, html }, __html }) => (
   <div className="p-8 bg-gray-500 rounded">
     <div
       style={{
@@ -35,7 +35,8 @@ const ProjectCard = ({ info: { image, body, name, techStack, html } }) => (
         );
       })} */}
     </div>
-    <div>{body}</div>
+    {/* <div>{body}</div> */}
+    <div dangerouslySetInnerHTML={{ __html }} />;
   </div>
 );
 
@@ -50,14 +51,19 @@ const Projects = () => (
           edges {
             node {
               id
-              html
               frontmatter {
-                body
                 image
                 name
                 startDate
                 techStack
                 endDate
+              }
+              fields {
+                frontmattermd {
+                  body {
+                    html
+                  }
+                }
               }
             }
           }
@@ -69,7 +75,11 @@ const Projects = () => (
         <h2 className="text-4xl">Projects</h2>
         <div className="grid grid-cols-4 gap-4">
           {data.allMarkdownRemark.edges.map(({ node }) => (
-            <ProjectCard key={node.id} info={node.frontmatter} />
+            <ProjectCard
+              key={node.id}
+              info={node.frontmatter}
+              __html={node.fields.frontmattermd.body.html}
+            />
           ))}
         </div>
       </div>
