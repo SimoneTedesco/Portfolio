@@ -10,7 +10,7 @@ const LIBS = [
   { id: 6, icon: "https://placecorgi.com/30" },
 ];
 
-const ProjectCard = ({ info: { image, description, name, techStack } }) => (
+const ProjectCard = ({ info: { image, body, name, techStack, html } }) => (
   <div className="p-8 bg-gray-500 rounded">
     <div
       style={{
@@ -35,7 +35,7 @@ const ProjectCard = ({ info: { image, description, name, techStack } }) => (
         );
       })} */}
     </div>
-    <div>{description}</div>
+    <div>{body}</div>
   </div>
 );
 
@@ -50,8 +50,9 @@ const Projects = () => (
           edges {
             node {
               id
+              html
               frontmatter {
-                description
+                body
                 image
                 name
                 startDate
