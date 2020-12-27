@@ -1,16 +1,8 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import TechStack from "./TechStack";
 
-const LIBS = [
-  { id: 1, icon: "https://placecorgi.com/30" },
-  { id: 2, icon: "https://placecorgi.com/30" },
-  { id: 3, icon: "https://placecorgi.com/30" },
-  { id: 4, icon: "https://placecorgi.com/30" },
-  { id: 5, icon: "https://placecorgi.com/30" },
-  { id: 6, icon: "https://placecorgi.com/30" },
-];
-
-const ProjectCard = ({ info: { image, name, techStack, html }, __html }) => (
+const ProjectCard = ({ info: { image, name, techStack }, __html }) => (
   <div className="p-8 bg-gray-500 rounded">
     <div
       style={{
@@ -20,23 +12,8 @@ const ProjectCard = ({ info: { image, name, techStack, html }, __html }) => (
       className="bg-transparent bg-no-repeat bg-top transition-all delay-200 duration-1000 hover:bg-bottom"
     />
     <h3 className="text-2xl">{name}</h3>
-    {/* quick and awful stuff i'll fix later i promise */}
-    <div className="flex">
-      {/* {techStack.map((x) => {
-        const { id, icon } = LIBS.find((y) => y.id === x);
-        return (
-          <img
-            alt={id}
-            src={icon}
-            className="rounded-full pr-2"
-            width="30px"
-            height="30px"
-          />
-        );
-      })} */}
-    </div>
-    {/* <div>{body}</div> */}
-    <div dangerouslySetInnerHTML={{ __html }} />;
+    <TechStack list={techStack} />
+    <div dangerouslySetInnerHTML={{ __html }} />
   </div>
 );
 
