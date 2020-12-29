@@ -28,19 +28,13 @@ const Projects = () => (
           edges {
             node {
               id
+              html
               frontmatter {
                 image
                 name
                 startDate
                 techStack
                 endDate
-              }
-              fields {
-                frontmattermd {
-                  body {
-                    html
-                  }
-                }
               }
             }
           }
@@ -55,7 +49,7 @@ const Projects = () => (
             <ProjectCard
               key={node.id}
               info={node.frontmatter}
-              __html={node.fields.frontmattermd.body.html}
+              __html={node.html}
             />
           ))}
         </div>

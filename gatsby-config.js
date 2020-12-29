@@ -12,11 +12,5 @@ module.exports = {
       },
     },
     "gatsby-transformer-remark",
-    {
-      resolve: "gatsby-transformer-remark-frontmatter",
-      options: {
-        whitelist: ["body"],
-      },
-    },
   ],
 };

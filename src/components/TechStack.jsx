@@ -1,23 +1,15 @@
 import React from "react";
 
-const LIBS = [
-  { id: 1, icon: "https://placecorgi.com/30" },
-  { id: 2, icon: "https://placecorgi.com/30" },
-  { id: 3, icon: "https://placecorgi.com/30" },
-  { id: 4, icon: "https://placecorgi.com/30" },
-  { id: 5, icon: "https://placecorgi.com/30" },
-  { id: 6, icon: "https://placecorgi.com/30" },
-];
+const trimExt = fileName => fileName.indexOf('.') === -1 ? fileName : fileName.split('.').slice(0, -1).join('.');
 
 const TechStack = ({ list }) => (
   <div className="flex">
-    {/* TODO: replace with reduce */}
     {list.map((x) => {
-      const { id, icon } = LIBS.find((y) => y.id.toString() === x);
+      const alt = trimExt(x.split("/images/")[1])
       return (
         <img
-          alt={id}
-          src={icon}
+          alt={alt}
+          src={x}
           className="rounded-full pr-2"
           width="30px"
           height="30px"
