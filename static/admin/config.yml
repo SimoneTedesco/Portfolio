@@ -56,7 +56,7 @@ collections:
         widget: "relation"
         collection: "label"
         search_fields: ["name"]
-        value_field: "name"
+        value_field: "{{slug}}"
         multiple: true
         display_fields: ["icon", "name"]
 
