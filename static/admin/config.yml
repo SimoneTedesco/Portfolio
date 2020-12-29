@@ -30,7 +30,14 @@ collections:
       - { label: "Image", name: "image", widget: "image" }
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "TechStack", name: "techStack", widget: "list", default: [] }
+      - label: "TechStack"
+        name: "techStack"
+        widget: "relation"
+        collection: "label"
+        search_fields: ["name"]
+        value_field: "icon"
+        multiple: true
+        display_fields: ["name"]
       - { label: "Link", name: "link", widget: "string", required: false }
       - {
           label: "StartDate",
@@ -56,7 +63,7 @@ collections:
         widget: "relation"
         collection: "label"
         search_fields: ["name"]
-        value_field: "{{slug}}"
+        value_field: "icon"
         multiple: true
-        display_fields: ["icon", "name"]
+        display_fields: ["name"]
 
