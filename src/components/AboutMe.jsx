@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import ContactForm from "./ContactForm";
 
 const list = [
@@ -49,3 +50,9 @@ const AboutMe = () => (
 );
 
 export default AboutMe;
+
+SocialLink.propTypes = {
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired,
+};

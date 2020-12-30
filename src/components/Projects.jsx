@@ -1,8 +1,9 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
+import PropTypes from "prop-types";
 import TechStack from "./TechStack";
 
-const ProjectCard = ({ info: { image, name, techStack }, __html }) => (
+const ProjectCard = ({ image, name, techStack, __html }) => (
   <div className="p-8 bg-gray-500 rounded">
     <div
       style={{
@@ -45,16 +46,29 @@ const Projects = () => (
       <div>
         <h2 className="text-4xl">Projects</h2>
         <div className="grid grid-cols-4 gap-4">
-          {data.allMarkdownRemark.edges.map(({ node }) => (
-            <ProjectCard
-              key={node.id}
-              info={node.frontmatter}
-              __html={node.html}
-            />
-          ))}
+          {data.allMarkdownRemark.edges.map(({ node }) => {
+            const { image, name, techStack } = node.frontmatter;
+            return (
+              <ProjectCard
+                key={node.id}
+                image={image}
+                name={name}
+                techStack={techStack}
+                __html={node.html}
+              />
+            );
+          })}
         </div>
       </div>
     )}
   />
 );
+
 export default Projects;
+
+ProjectCard.propTypes = {
+  image: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  techStack: PropTypes.string.isRequired,
+  __html: PropTypes.string.isRequired,
+};
