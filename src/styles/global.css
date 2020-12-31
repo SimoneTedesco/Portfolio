@@ -3,3 +3,8 @@
 @tailwind utilities;
 
 /* transform: scale(1.2); */
+
+body {
+  @apply bg-gray-800;
+  @apply text-white;
+}
