@@ -35,9 +35,9 @@ const SocialLink = ({ image, name, link }) => (
 const AboutMe = () => (
   <div>
     <h2 className="text-4xl mb-4">Contatti</h2>
-    <div className="flex">
+    <div className="lg:flex">
       <ContactForm />
-      <div className="flex flex-col justify-evenly">
+      <div className="flex lg:flex-col justify-evenly">
         {list.map(({ image, name, link }) => {
           const id = Math.random().toString(36).slice(2);
           return <SocialLink key={id} image={image} name={name} link={link} />;
