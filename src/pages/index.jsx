@@ -4,8 +4,10 @@ import Projects from "../components/Projects";
 import AboutMe from "../components/AboutMe";
 
 const IndexPage = () => (
-  <main>
-    <h1>Io sono Simone Tedesco</h1>
+  <main className="container mx-auto max-w-screen-xl my-32">
+    <h1 className="text-4xl mb-4">
+      Io sono <span className="text-6xl">Simone Tedesco</span>
+    </h1>
     <p>
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
       iusto consectetur, veniam nemo esse excepturi sint non deleniti

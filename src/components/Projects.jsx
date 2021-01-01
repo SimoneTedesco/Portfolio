@@ -44,8 +44,8 @@ const Projects = () => (
     `}
     render={(data) => (
       <div>
-        <h2 className="text-4xl">Projects</h2>
-        <div className="grid grid-cols-4 gap-4">
+        <h2 className="text-4xl mb-4">Projects</h2>
+        <section className="grid grid-cols-4 gap-4 mb-16">
           {data.allMarkdownRemark.edges.map(({ node }) => {
             const { image, name, techStack } = node.frontmatter;
             return (
@@ -58,7 +58,7 @@ const Projects = () => (
               />
             );
           })}
-        </div>
+        </section>
       </div>
     )}
   />

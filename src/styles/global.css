@@ -8,3 +8,20 @@ body {
   @apply bg-gray-800;
   @apply text-white;
 }
+
+@layer base {
+  /* @font-face {
+    font-family: ;
+    src: url();
+  } */
+  body {
+    @apply bg-gray-800;
+    @apply text-white;
+  }
+  h1 {
+    @apply text-2xl;
+  }
+  h2 {
+    @apply text-xl;
+  }
+}

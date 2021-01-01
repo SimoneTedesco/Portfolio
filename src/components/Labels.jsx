@@ -39,12 +39,12 @@ const Labels = () => (
       }
     `}
     render={(data) => (
-      <div className="flex flex-wrap">
+      <section className="flex flex-wrap my-16">
         {data.allMarkdownRemark.edges.map(({ node }) => {
           const { color, icon, name } = node.frontmatter;
           return <Label key={node.id} color={color} icon={icon} name={name} />;
         })}
-      </div>
+      </section>
     )}
   />
 );

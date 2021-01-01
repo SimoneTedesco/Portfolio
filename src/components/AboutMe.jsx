@@ -21,25 +21,23 @@ const list = [
 ];
 
 const SocialLink = ({ image, name, link }) => (
-  <div>
-    <a href={link} target="_blank" rel="noreferrer">
-      <img
-        src={image}
-        alt={name}
-        height="50px"
-        width="50px"
-        className="rounded-full"
-      />
-    </a>
-  </div>
+  <a href={link} target="_blank" rel="noreferrer">
+    <img
+      src={image}
+      alt={name}
+      height="50px"
+      width="50px"
+      className="rounded-full bg-white"
+    />
+  </a>
 );
 
 const AboutMe = () => (
   <div>
-    <h2 className="text-4xl">Contatti</h2>
+    <h2 className="text-4xl mb-4">Contatti</h2>
     <div className="flex">
       <ContactForm />
-      <div>
+      <div className="flex flex-col justify-evenly">
         {list.map(({ image, name, link }) => {
           const id = Math.random().toString(36).slice(2);
           return <SocialLink key={id} image={image} name={name} link={link} />;
