@@ -9,10 +9,10 @@ const IndexPage = () => (
       Io sono <span className="text-6xl">Simone Tedesco</span>
     </h1>
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-      iusto consectetur, veniam nemo esse excepturi sint non deleniti
-      repellendus veritatis eaque, quisquam debitis repellat quod explicabo
-      dolorem suscipit in dolores!
+      Sono uno sviluppatore front-end specializzato nella realizzazione di web
+      application. Ho competenze approfondite in HTML5, CSS3 e JavaScript. Sono
+      sempre entusiasta nell&apos;imparare nuove tecnologie e
+      nell&apos;approfondire quelle che già conosco.
     </p>
 
     <Labels />

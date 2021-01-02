@@ -10,7 +10,7 @@ const ProjectCard = ({ image, name, techStack, __html }) => (
         backgroundImage: `url(${image})`,
         height: "200px",
       }}
-      className="bg-transparent bg-no-repeat bg-top transition-all delay-200 duration-1000 hover:bg-bottom"
+      className="bg-transparent bg-cover bg-no-repeat bg-top transition-all delay-200 duration-1000 hover:bg-bottom"
     />
     <h3 className="text-2xl">{name}</h3>
     <TechStack list={techStack} />
