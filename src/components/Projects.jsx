@@ -7,7 +7,7 @@ const ProjectCard = ({ image, name, techStack, __html }) => (
   <div className="p-8 bg-gray-500 rounded">
     <div
       style={{
-        backgroundImage: `url(${image})`,
+        backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
         height: "200px",
       }}
       className="bg-transparent bg-cover bg-no-repeat bg-top transition-all delay-200 duration-1000 hover:bg-bottom"
