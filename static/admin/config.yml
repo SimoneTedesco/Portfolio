@@ -52,18 +52,3 @@ collections:
           time_format: false,
           required: false,
         }
-  - name: "techStack"
-    label: "TechStack"
-    folder: "src/content/techStacks"
-    create: true
-    slug: "{{year}}{{month}}{{day}}-{{fields.name}}"
-    fields:
-      - label: "TechStack"
-        name: "techStack"
-        widget: "relation"
-        collection: "label"
-        search_fields: ["name"]
-        value_field: "icon"
-        multiple: true
-        display_fields: ["name"]
-
