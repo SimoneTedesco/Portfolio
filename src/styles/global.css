@@ -4,11 +4,6 @@
 
 /* transform: scale(1.2); */
 
-body {
-  @apply bg-gray-800;
-  @apply text-white;
-}
-
 @layer base {
   /* @font-face {
     font-family: ;
@@ -23,5 +18,11 @@ body {
   }
   h2 {
     @apply text-xl;
+  }
+}
+
+@layer components { 
+  .flex-label {
+    flex: 1 1 30%;
   }
 }

@@ -5,17 +5,15 @@ import PropTypes from "prop-types";
 const Label = ({ color, icon, name }) => (
   <div
     style={{ backgroundColor: color }}
-    className="flex rounded-full mb-4 mr-4 py-2 px-4 flex-auto"
+    className="flex rounded-full mb-4 mr-4 py-2 px-4 flex-label md:flex-initial md:flex-grow"
   >
-    <div>
-      <img
-        src={icon}
-        alt={name}
-        className="rounded-full"
-        width="40px"
-        height="40px"
-      />
-    </div>
+    <img
+      src={icon}
+      alt={name}
+      className="rounded-full"
+      width="40px"
+      height="40px"
+    />
     <span className="ml-2 my-auto">{name}</span>
   </div>
 );
