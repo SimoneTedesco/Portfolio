@@ -1,6 +1,7 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
+import Zoom from "react-reveal/Zoom";
 
 const Label = ({ color, icon, name }) => (
   <div
@@ -37,12 +38,16 @@ const Labels = () => (
       }
     `}
     render={(data) => (
-      <section className="flex flex-wrap my-16">
-        {data.allMarkdownRemark.edges.map(({ node }) => {
-          const { color, icon, name } = node.frontmatter;
-          return <Label key={node.id} color={color} icon={icon} name={name} />;
-        })}
-      </section>
+      <Zoom left>
+        <section className="flex flex-wrap my-64">
+          {data.allMarkdownRemark.edges.map(({ node }) => {
+            const { color, icon, name } = node.frontmatter;
+            return (
+              <Label key={node.id} color={color} icon={icon} name={name} />
+            );
+          })}
+        </section>
+      </Zoom>
     )}
   />
 );

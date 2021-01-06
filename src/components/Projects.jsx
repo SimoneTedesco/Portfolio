@@ -1,15 +1,16 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
+import Fade from "react-reveal/Fade";
 import TechStack from "./TechStack";
 
 const ProjectCard = ({ image, name, techStack, __html }) => (
   <div className="p-8 bg-gray-500 rounded">
     <div
-      style={{
-        backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
-        height: "200px",
-      }}
+      // style={{
+      //   backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
+      //   height: "200px",
+      // }}
       className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
     />
     <h3 className="text-2xl">{name}</h3>
@@ -46,18 +47,20 @@ const Projects = () => (
       <div>
         <h2 className="text-4xl mb-4">Projects</h2>
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {data.allMarkdownRemark.edges.map(({ node }) => {
-            const { image, name, techStack } = node.frontmatter;
-            return (
-              <ProjectCard
-                key={node.id}
-                image={image}
-                name={name}
-                techStack={techStack}
-                __html={node.html}
-              />
-            );
-          })}
+          <Fade top>
+            {data.allMarkdownRemark.edges.map(({ node }) => {
+              const { image, name, techStack } = node.frontmatter;
+              return (
+                <ProjectCard
+                  key={node.id}
+                  image={image}
+                  name={name}
+                  techStack={techStack}
+                  __html={node.html}
+                />
+              );
+            })}
+          </Fade>
         </section>
       </div>
     )}
