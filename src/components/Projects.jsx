@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
+import ScrollReveal from 'scrollreveal'
 import TechStack from "./TechStack";
 
 const ProjectCard = ({ image, name, techStack, __html }) => (
@@ -18,7 +19,20 @@ const ProjectCard = ({ image, name, techStack, __html }) => (
   </div>
 );
 
-const Projects = () => (
+const Projects = () => {
+  useEffect(() => {
+    ScrollReveal().reveal('.grid.grid-cols-1 div.p-8:nth-child(odd)', {
+      interval: 200,
+      reset: true,
+    });
+    ScrollReveal().reveal('.grid.grid-cols-1 div.p-8:nth-child(even)', {
+      interval: 200,
+      reset: true,
+      delay: 400,
+    });
+  }, [])
+
+ return (
   <StaticQuery
     query={graphql`
       query getAllProjects {
@@ -62,7 +76,8 @@ const Projects = () => (
       </div>
     )}
   />
-);
+)
+};
 
 export default Projects;
 
