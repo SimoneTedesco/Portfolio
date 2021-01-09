@@ -7,7 +7,7 @@ const Label = ({ color, icon, name }) => (
   <motion.div
     whileHover={{ scale: 1.1 }}
     style={{ backgroundColor: color }}
-    className="flex rounded-full mb-4 mr-4 py-2 px-4 flex-label md:flex-initial md:flex-grow"
+    className="flex rounded-full h-12 mb-4 mr-4 py-2 px-4 flex-label md:flex-initial md:flex-grow"
   >
     <img
       src={icon}
@@ -39,7 +39,8 @@ const Labels = () => (
       }
     `}
     render={(data) => (
-      <section className="flex flex-wrap my-64">
+      // <section className="flex flex-wrap my-64">
+      <section className="flex flex-wrap items-center h-screen w-full bg-green-300">
         {data.allMarkdownRemark.edges.map(({ node }) => {
           const { color, icon, name } = node.frontmatter;
           return <Label key={node.id} color={color} icon={icon} name={name} />;
