@@ -34,6 +34,7 @@
   },
   "dependencies": {
     "autoprefixer": "^10.1.0",
+    "framer-motion": "^3.1.4",
     "gatsby": "^2.26.1",
     "gatsby-plugin-netlify-cms": "^4.7.0",
     "gatsby-plugin-postcss": "^3.4.0",
@@ -44,6 +45,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "scrollreveal": "^4.0.7",
     "tailwindcss": "^2.0.2"
   }
 }

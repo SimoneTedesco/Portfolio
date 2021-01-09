@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
+import ScrollReveal from "scrollreveal";
 import TechStack from "./TechStack";
 
 const ProjectCard = ({ image, name, techStack, __html }) => (
@@ -18,51 +19,66 @@ const ProjectCard = ({ image, name, techStack, __html }) => (
   </div>
 );
 
-const Projects = () => (
-  <StaticQuery
-    query={graphql`
-      query getAllProjects {
-        allMarkdownRemark(
-          filter: { fileAbsolutePath: { regex: "/projects/" } }
-          sort: { fields: frontmatter___startDate, order: DESC }
-        ) {
-          edges {
-            node {
-              id
-              html
-              frontmatter {
-                image
-                name
-                startDate
-                techStack
-                endDate
+const Projects = () => {
+  useEffect(() => {
+    ScrollReveal().reveal(".grid.grid-cols-1 div.p-8:nth-child(odd)", {
+      interval: 200,
+      // reset: true,
+    });
+    ScrollReveal().reveal(".grid.grid-cols-1 div.p-8:nth-child(even)", {
+      interval: 200,
+      // reset: true,
+      delay: 400,
+    });
+  }, []);
+
+  return (
+    <StaticQuery
+      query={graphql`
+        query getAllProjects {
+          allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/projects/" } }
+            sort: { fields: frontmatter___startDate, order: DESC }
+            limit: 8
+          ) {
+            edges {
+              node {
+                id
+                html
+                frontmatter {
+                  image
+                  name
+                  startDate
+                  techStack
+                  endDate
+                }
               }
             }
           }
         }
-      }
-    `}
-    render={(data) => (
-      <div>
-        <h2 className="text-4xl mb-4">Projects</h2>
-        <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          {data.allMarkdownRemark.edges.map(({ node }) => {
-            const { image, name, techStack } = node.frontmatter;
-            return (
-              <ProjectCard
-                key={node.id}
-                image={image}
-                name={name}
-                techStack={techStack}
-                __html={node.html}
-              />
-            );
-          })}
+      `}
+      render={(data) => (
+        <section className="h-full w-full p-32 bg-red-400">
+          <h2 className="text-4xl mb-4">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+            {data.allMarkdownRemark.edges.map(({ node }) => {
+              const { image, name, techStack } = node.frontmatter;
+              return (
+                <ProjectCard
+                  key={node.id}
+                  image={image}
+                  name={name}
+                  techStack={techStack}
+                  __html={node.html}
+                />
+              );
+            })}
+          </div>
         </section>
-      </div>
-    )}
-  />
-);
+      )}
+    />
+  );
+};
 
 export default Projects;
 

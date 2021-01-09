@@ -14,6 +14,7 @@ const TechStack = ({ list }) => (
         <img
           alt={alt}
           src={x}
+          key={x}
           className="rounded-full pr-2"
           width="30px"
           height="30px"
