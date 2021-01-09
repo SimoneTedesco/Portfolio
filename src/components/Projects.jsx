@@ -23,11 +23,11 @@ const Projects = () => {
   useEffect(() => {
     ScrollReveal().reveal(".grid.grid-cols-1 div.p-8:nth-child(odd)", {
       interval: 200,
-      reset: true,
+      // reset: true,
     });
     ScrollReveal().reveal(".grid.grid-cols-1 div.p-8:nth-child(even)", {
       interval: 200,
-      reset: true,
+      // reset: true,
       delay: 400,
     });
   }, []);
@@ -58,7 +58,7 @@ const Projects = () => {
         }
       `}
       render={(data) => (
-        <section className="h-screen w-full bg-red-400">
+        <section className="h-full w-full p-32 bg-red-400">
           <h2 className="text-4xl mb-4">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
             {data.allMarkdownRemark.edges.map(({ node }) => {

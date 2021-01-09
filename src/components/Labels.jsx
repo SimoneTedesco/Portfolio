@@ -40,7 +40,7 @@ const Labels = () => (
     `}
     render={(data) => (
       // <section className="flex flex-wrap my-64">
-      <section className="flex flex-wrap items-center h-screen w-full bg-green-300">
+      <section className="flex flex-wrap items-center h-screen w-full p-32 bg-green-300">
         {data.allMarkdownRemark.edges.map(({ node }) => {
           const { color, icon, name } = node.frontmatter;
           return <Label key={node.id} color={color} icon={icon} name={name} />;

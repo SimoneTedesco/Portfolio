@@ -6,7 +6,8 @@ import AboutMe from "../components/AboutMe";
 const IndexPage = () => (
   // <main className="container mx-auto max-w-screen-xl my-32 px-4">
   <main>
-    <section className="h-screen w-full bg-blue-500">
+    <section className="h-screen w-full p-32 bg-blue-500">
+      <h1>Hello World!</h1>
       <h1 className="text-4xl mb-4">
         Io sono{" "}
         <span className="text-6xl" contentEditable>
