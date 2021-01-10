@@ -7,6 +7,7 @@ const IndexPage = () => (
   // <main className="container mx-auto max-w-screen-xl my-32 px-4">
   <main>
     {/* background: linear-gradient(#3b82f6, #6e */}
+    {/* This section has to be redone */}
     <section className="h-screen w-full p-32 bg-blue-500">
       <h1>Hello World!</h1>
       <h1 className="text-4xl mb-4">
@@ -24,6 +25,7 @@ const IndexPage = () => (
     </section>
     <Labels />
     <Projects />
+    {/* REMOVE */}
     <AboutMe />
   </main>
 );
