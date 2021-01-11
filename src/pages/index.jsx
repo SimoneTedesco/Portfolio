@@ -8,8 +8,8 @@ const IndexPage = () => (
   <main>
     {/* background: linear-gradient(#3b82f6, #6e */}
     {/* This section has to be redone */}
+    <h1 className="sticky top-0">Hello World!</h1>
     <section className="h-screen w-full p-32 bg-blue-500">
-      <h1>Hello World!</h1>
       <h1 className="text-4xl mb-4">
         Io sono{" "}
         <span className="text-6xl" contentEditable>
