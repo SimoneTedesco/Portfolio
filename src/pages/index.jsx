@@ -26,7 +26,7 @@ const IndexPage = () => (
     <Labels />
     <Projects />
     {/* REMOVE */}
-    <AboutMe />
+    {/* <AboutMe /> */}
   </main>
 );
 
