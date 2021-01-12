@@ -31,6 +31,6 @@
     transition-duration: 100ms, 4s;
   }
   .cover-transition:hover {
-    transition-delay: 0ms, 1s;
+    transition-delay: 0ms, 250ms;
   }
 }
