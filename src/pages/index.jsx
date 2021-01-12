@@ -8,7 +8,9 @@ const IndexPage = () => (
   <main>
     {/* background: linear-gradient(#3b82f6, #6e */}
     {/* This section has to be redone */}
-    <h1 className="sticky top-0">Hello World!</h1>
+    <nav className="sticky top-0 bg-transparent">
+      <h1 className="">&lt;SimoneTedesco /&gt;</h1>
+    </nav>
     <section className="h-screen w-full p-32 bg-blue-500">
       <h1 className="text-4xl mb-4">
         Io sono{" "}
@@ -18,7 +20,12 @@ const IndexPage = () => (
       </h1>
       <p>
         Sono uno sviluppatore front-end specializzato nella realizzazione di web
-        application. Ho competenze approfondite in HTML5, CSS3 e JavaScript.
+        application.
+      </p>
+      <p>
+        Ho competenze approfondite in HTML5, CSS3 e JavaScript.
+      </p>
+      <p>
         Sono sempre entusiasta nell&apos;imparare nuove tecnologie e
         nell&apos;approfondire quelle che già conosco.
       </p>
