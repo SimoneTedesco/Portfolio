@@ -27,7 +27,8 @@ const IndexPage = () => {
       <section className="h-screen w-full p-32 bg-blue-500">
         <h1 className="text-4xl mb-4">
           Io sono{" "}
-          <span className="text-6xl" contentEditable>
+          <span className="text-6xl">
+            {/* <span className="text-6xl" contentEditable> */}
             Simone Tedesco
           </span>
         </h1>
