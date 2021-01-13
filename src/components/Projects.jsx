@@ -50,63 +50,69 @@ const ProjectCard = ({ id, image, name, techStack, __html }) => {
   );
 };
 
-const Projects = () => (
-  // useEffect(() => {
-  //   ScrollReveal().reveal(".grid.grid-cols-1 div.p-8:nth-child(odd)", {
-  //     interval: 200,
-  //     // reset: true,
-  //   });
-  //   ScrollReveal().reveal(".grid.grid-cols-1 div.p-8:nth-child(even)", {
-  //     interval: 200,
-  //     // reset: true,
-  //     delay: 400,
-  //   });
-  // }, []);
+const Projects = ({ setShowModal }) => {
+  useEffect(() => {
+    setInterval(() => {
+      setShowModal(true);
+    }, 4000);
+  }, [setShowModal]);
+  return (
+    // useEffect(() => {
+    //   ScrollReveal().reveal(".grid.grid-cols-1 div.p-8:nth-child(odd)", {
+    //     interval: 200,
+    //     // reset: true,
+    //   });
+    //   ScrollReveal().reveal(".grid.grid-cols-1 div.p-8:nth-child(even)", {
+    //     interval: 200,
+    //     // reset: true,
+    //     delay: 400,
+    //   });
+    // }, []);
 
-  <StaticQuery
-    query={graphql`
-      query getAllProjects {
-        allMarkdownRemark(
-          filter: { fileAbsolutePath: { regex: "/projects/" } }
-          sort: { fields: frontmatter___startDate, order: DESC }
-          limit: 8
-        ) {
-          edges {
-            node {
-              id
-              html
-              frontmatter {
-                image
-                name
-                startDate
-                techStack
-                endDate
+    <StaticQuery
+      query={graphql`
+        query getAllProjects {
+          allMarkdownRemark(
+            filter: { fileAbsolutePath: { regex: "/projects/" } }
+            sort: { fields: frontmatter___startDate, order: DESC }
+            limit: 8
+          ) {
+            edges {
+              node {
+                id
+                html
+                frontmatter {
+                  image
+                  name
+                  startDate
+                  techStack
+                  endDate
+                }
               }
             }
           }
         }
-      }
-    `}
-    render={(data) => (
-      <section className="h-full w-full p-32 bg-red-400">
-        <h2 className="text-4xl mb-4">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
-          <AnimateSharedLayout type="crossfade">
-            {data.allMarkdownRemark.edges.map(({ node }) => {
-              const { image, name, techStack } = node.frontmatter;
-              return (
-                <ProjectCard
-                  key={node.id}
-                  id={node.id}
-                  image={image}
-                  name={name}
-                  techStack={techStack}
-                  __html={node.html}
-                />
-              );
-            })}
-          </AnimateSharedLayout>
-          {/* {data.allMarkdownRemark.edges.map(({ node }) => {
+      `}
+      render={(data) => (
+        <section className="h-full w-full p-32 bg-red-400">
+          <h2 className="text-4xl mb-4">Projects</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+            <AnimateSharedLayout type="crossfade">
+              {data.allMarkdownRemark.edges.map(({ node }) => {
+                const { image, name, techStack } = node.frontmatter;
+                return (
+                  <ProjectCard
+                    key={node.id}
+                    id={node.id}
+                    image={image}
+                    name={name}
+                    techStack={techStack}
+                    __html={node.html}
+                  />
+                );
+              })}
+            </AnimateSharedLayout>
+            {/* {data.allMarkdownRemark.edges.map(({ node }) => {
             const { image, name, techStack } = node.frontmatter;
             return (
               <ProjectCard
@@ -118,11 +124,13 @@ const Projects = () => (
               />
             );
           })} */}
-        </div>
-      </section>
-    )}
-  />
-);
+          </div>
+        </section>
+      )}
+    />
+  );
+};
+
 export default Projects;
 
 ProjectCard.propTypes = {
