@@ -7,11 +7,15 @@ import Modal from "../components/Modal";
 
 const IndexPage = () => {
   const [showModal, setShowModal] = useState(false);
+  const handleChange = (value) => {
+    // debugger
+    setShowModal(value)
+  }
   return (
     <main>
       {/* background: linear-gradient(#3b82f6, #6e */}
       {/* This section has to be redone */}
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <Modal showModal={showModal} setShowModal={handleChange} />
       <nav className="sticky top-0 bg-transparent">
         <motion.h1
           whileHover={{ scale: 1.2, rotate: 90 }}
@@ -43,7 +47,7 @@ const IndexPage = () => {
         </p>
       </section>
       <Labels />
-      <Projects setShowModal={setShowModal} />
+      <Projects setShowModal={handleChange} />
       {/* REMOVE */}
       {/* <AboutMe /> */}
     </main>

@@ -5,10 +5,14 @@ import ScrollReveal from "scrollreveal";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import TechStack from "./TechStack";
 
-const ProjectCard = ({ id, image, name, techStack, __html }) => {
+const ProjectCard = ({ id, image, name, techStack, __html, setShowModal }) => {
   const [selectedId, setSelectedId] = useState(null);
+  const handleClick = (value) => {
+    setShowModal(true)
+  }
   return (
     <>
+      {/* https://www.youtube.com/watch?v=N6d0uACGOVY */}
       <motion.div
         className="p-8 bg-gray-500 rounded"
         onClick={() => setSelectedId(name)}
@@ -20,12 +24,13 @@ const ProjectCard = ({ id, image, name, techStack, __html }) => {
             height: "200px",
           }}
           className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
+          onClick={() => handleClick()}
         />
         <motion.h3 className="text-2xl">{name}</motion.h3>
         <TechStack list={techStack} />
         {/* <motion.div dangerouslySetInnerHTML={{ __html }} /> */}
       </motion.div>
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter>
         {selectedId && (
           <motion.div
             className="p-8 bg-gray-500 rounded overlay"
@@ -50,13 +55,13 @@ const ProjectCard = ({ id, image, name, techStack, __html }) => {
   );
 };
 
-const Projects = ({ setShowModal }) => {
-  useEffect(() => {
-    setInterval(() => {
-      setShowModal(true);
-    }, 4000);
-  }, [setShowModal]);
-  return (
+const Projects = ({ setShowModal }) => 
+  // useEffect(() => {
+  //   setInterval(() => {
+  //     setShowModal(true);
+  //   }, 4000);
+  // }, [setShowModal]);
+   (
     // useEffect(() => {
     //   ScrollReveal().reveal(".grid.grid-cols-1 div.p-8:nth-child(odd)", {
     //     interval: 200,
@@ -108,6 +113,7 @@ const Projects = ({ setShowModal }) => {
                     name={name}
                     techStack={techStack}
                     __html={node.html}
+                    setShowModal={setShowModal}
                   />
                 );
               })}
@@ -128,8 +134,8 @@ const Projects = ({ setShowModal }) => {
         </section>
       )}
     />
-  );
-};
+  )
+;
 
 export default Projects;
 
