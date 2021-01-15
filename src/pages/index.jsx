@@ -6,11 +6,11 @@ import AboutMe from "../components/AboutMe";
 import Modal from "../components/Modal";
 
 const IndexPage = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(null);
   const handleChange = (value) => {
     // debugger
-    setShowModal(value)
-  }
+    setShowModal(value);
+  };
   return (
     <main>
       {/* background: linear-gradient(#3b82f6, #6e */}
@@ -47,7 +47,7 @@ const IndexPage = () => {
         </p>
       </section>
       <Labels />
-      <Projects setShowModal={handleChange} />
+      <Projects setShowModal={handleChange} showModal={showModal} />
       {/* REMOVE */}
       {/* <AboutMe /> */}
     </main>

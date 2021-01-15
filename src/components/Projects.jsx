@@ -6,28 +6,31 @@ import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import FocusTrap from "focus-trap-react";
 import TechStack from "./TechStack";
 
-const ProjectCard = ({ id, image, name, techStack, __html, setShowModal }) => {
-  const [selectedId, setSelectedId] = useState(null);
-  const modalRef = useRef(null);
+const ProjectCard = ({
+  id,
+  image,
+  name,
+  techStack,
+  __html,
+  showModal,
+  setShowModal,
+}) => {
+  const openModal = (e, selectedCard) => setShowModal(selectedCard);
+  const closeModal = () => setShowModal(null);
+
   const closeModalEsc = (e) => {
     if (e.key === "Escape") {
-      setShowModal(false);
+      closeModal();
     }
   };
-
-  // useEffect(() => {
-  //   if (selectedId !== null && modalRef.current) {
-  //     modalRef.current.focus();
-  //   }
-  // }, [selectedId]);
-
   return (
     <>
       {/* https://www.youtube.com/watch?v=N6d0uACGOVY */}
       <motion.div
         className="p-8 bg-gray-500 rounded"
-        onClick={() => setSelectedId(name)}
+        onClick={(e) => openModal(e, name)}
         layoutId={name}
+        tabIndex={0}
       >
         <motion.div
           style={{
@@ -35,46 +38,41 @@ const ProjectCard = ({ id, image, name, techStack, __html, setShowModal }) => {
             height: "200px",
           }}
           className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
-          onClick={() => setShowModal(true)}
+          // onClick={() => setShowModal(true)}
         />
         <motion.h3 className="text-2xl">{name}</motion.h3>
         <TechStack list={techStack} />
         {/* <motion.div dangerouslySetInnerHTML={{ __html }} /> */}
       </motion.div>
       <AnimatePresence exitBeforeEnter>
-        {selectedId && (
-          // https://gist.github.com/myogeshchavan97/d50d42aa9205573b811587d57c2e58a6#file-trap_focus-js
-          <FocusTrap>
+        {showModal && (
+          // <FocusTrap active={Boolean(showModal)}>
+          <motion.div
+            className="p-8 bg-gray-500 rounded overlay"
+            layoutId={showModal}
+            onClick={closeModal}
+            onKeyDown={closeModalEsc}
+          >
+            <motion.button onClick={closeModal}>x</motion.button>
             <motion.div
-              className="p-8 bg-gray-500 rounded overlay"
-              layoutId={selectedId}
-              onClick={() => setSelectedId(null)}
-              onKeyDown={closeModalEsc}
-              tabIndex={0}
-              ref={modalRef}
-            >
-              <motion.button onClick={() => setSelectedId(null)}>
-                x
-              </motion.button>
-              <motion.div
-                style={{
-                  backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
-                  height: "200px",
-                }}
-                className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
-              />
-              <motion.h3 className="text-2xl">{name}</motion.h3>
-              <TechStack list={techStack} />
-              <motion.div dangerouslySetInnerHTML={{ __html }} />
-            </motion.div>
-          </FocusTrap>
+              style={{
+                backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
+                height: "200px",
+              }}
+              className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
+            />
+            <motion.h3 className="text-2xl">{name}</motion.h3>
+            <TechStack list={techStack} />
+            <motion.div dangerouslySetInnerHTML={{ __html }} />
+          </motion.div>
+          // </FocusTrap>
         )}
       </AnimatePresence>
     </>
   );
 };
 
-const Projects = ({ setShowModal }) => (
+const Projects = ({ showModal, setShowModal }) => (
   // useEffect(() => {
   //   setInterval(() => {
   //     setShowModal(true);
@@ -131,6 +129,7 @@ const Projects = ({ setShowModal }) => (
                   name={name}
                   techStack={techStack}
                   __html={node.html}
+                  showModal={showModal}
                   setShowModal={setShowModal}
                 />
               );

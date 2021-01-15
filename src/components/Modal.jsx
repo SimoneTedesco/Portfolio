@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const backdrop = {
@@ -23,7 +23,7 @@ const modal = {
 };
 
 const Modal = ({ showModal, setShowModal }) => {
-  const closeModal = () => setShowModal(false);
+  const closeModal = () => setShowModal(null);
   return (
     <AnimatePresence exitBeforeEnter>
       {showModal && (
