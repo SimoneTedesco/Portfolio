@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const backdrop = {
@@ -24,12 +24,6 @@ const modal = {
 
 const Modal = ({ showModal, setShowModal }) => {
   const closeModal = () => setShowModal(false);
-  const closeModalEsc = (e) => {
-    console.log(e.keyCode, e.key)
-    if (e.keyCode === 27) {
-      setShowModal(false);
-    }
-  }
   return (
     <AnimatePresence exitBeforeEnter>
       {showModal && (
@@ -40,8 +34,6 @@ const Modal = ({ showModal, setShowModal }) => {
           animate="visible"
           exit="hidden"
           onClick={closeModal}
-          onKeyDown={closeModal}
-          // onKeyDown={() => closeModalEsc()}
           tabIndex={0}
         />
       )}

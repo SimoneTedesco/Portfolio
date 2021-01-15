@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
 import ScrollReveal from "scrollreveal";
@@ -7,9 +7,19 @@ import TechStack from "./TechStack";
 
 const ProjectCard = ({ id, image, name, techStack, __html, setShowModal }) => {
   const [selectedId, setSelectedId] = useState(null);
-  const handleClick = (value) => {
-    setShowModal(true)
+  const modalRef = useRef(null);
+  const closeModalEsc = (e) => {
+    if (e.key === 'Escape') {
+      setShowModal(false);
+    }
   }
+  
+  useEffect(() => {
+    if (selectedId !== null && modalRef.current) {
+      modalRef.current.focus();
+    }
+  }, [selectedId])
+
   return (
     <>
       {/* https://www.youtube.com/watch?v=N6d0uACGOVY */}
@@ -24,7 +34,7 @@ const ProjectCard = ({ id, image, name, techStack, __html, setShowModal }) => {
             height: "200px",
           }}
           className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
-          onClick={() => handleClick()}
+          onClick={() => setShowModal(true)}
         />
         <motion.h3 className="text-2xl">{name}</motion.h3>
         <TechStack list={techStack} />
@@ -36,7 +46,11 @@ const ProjectCard = ({ id, image, name, techStack, __html, setShowModal }) => {
             className="p-8 bg-gray-500 rounded overlay"
             layoutId={selectedId}
             onClick={() => setSelectedId(null)}
+            onKeyDown={closeModalEsc}
+            tabIndex={0}
+            ref={modalRef}
           >
+            <motion.button onClick={() => setSelectedId(null)}>x</motion.button>
             <motion.div
               style={{
                 backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
@@ -47,7 +61,6 @@ const ProjectCard = ({ id, image, name, techStack, __html, setShowModal }) => {
             <motion.h3 className="text-2xl">{name}</motion.h3>
             <TechStack list={techStack} />
             <motion.div dangerouslySetInnerHTML={{ __html }} />
-            <motion.button onClick={() => setSelectedId(null)} />
           </motion.div>
         )}
       </AnimatePresence>
