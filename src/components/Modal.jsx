@@ -34,7 +34,7 @@ const Modal = ({ showModal, setShowModal }) => {
           animate="visible"
           exit="hidden"
           onClick={closeModal}
-          tabIndex={0}
+          // tabIndex={0}
         />
       )}
     </AnimatePresence>

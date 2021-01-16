@@ -29,6 +29,7 @@ const ProjectCard = ({
       <motion.div
         className="p-8 bg-gray-500 rounded"
         onClick={(e) => openModal(e, name)}
+        onKeyDown={(e) => openModal(e, name)}
         layoutId={name}
         tabIndex={0}
       >
@@ -46,26 +47,32 @@ const ProjectCard = ({
       </motion.div>
       <AnimatePresence exitBeforeEnter>
         {showModal && (
-          // <FocusTrap active={Boolean(showModal)}>
-          <motion.div
-            className="p-8 bg-gray-500 rounded overlay"
-            layoutId={showModal}
-            onClick={closeModal}
-            onKeyDown={closeModalEsc}
+          <FocusTrap
+            focusTrapOptions={{
+              // initialFocus: this.props.initialFocus, // defaultProps => '.modal-dialog .body'
+              fallbackFocus: "body",
+              // clickOutsideDeactivates: true,
+            }}
           >
-            <motion.button onClick={closeModal}>x</motion.button>
             <motion.div
-              style={{
-                backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
-                height: "200px",
-              }}
-              className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
-            />
-            <motion.h3 className="text-2xl">{name}</motion.h3>
-            <TechStack list={techStack} />
-            <motion.div dangerouslySetInnerHTML={{ __html }} />
-          </motion.div>
-          // </FocusTrap>
+              className="p-8 bg-gray-500 rounded overlay"
+              layoutId={showModal}
+              onClick={closeModal}
+              onKeyDown={closeModalEsc}
+            >
+              <motion.button onClick={closeModal}>x</motion.button>
+              <motion.div
+                style={{
+                  backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
+                  height: "200px",
+                }}
+                className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
+              />
+              <motion.h3 className="text-2xl">{name}</motion.h3>
+              <TechStack list={techStack} />
+              <motion.div dangerouslySetInnerHTML={{ __html }} />
+            </motion.div>
+          </FocusTrap>
         )}
       </AnimatePresence>
     </>
@@ -117,7 +124,11 @@ const Projects = ({ showModal, setShowModal }) => (
     render={(data) => (
       <section className="h-full w-full p-32 bg-red-400">
         <h2 className="text-4xl mb-4">Projects</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16">
+        <div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16"
+          id="projects"
+          tabIndex={-1}
+        >
           <AnimateSharedLayout type="crossfade">
             {data.allMarkdownRemark.edges.map(({ node }) => {
               const { image, name, techStack } = node.frontmatter;
