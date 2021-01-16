@@ -18,6 +18,11 @@ const ProjectCard = ({
   const openModal = (e, selectedCard) => setShowModal(selectedCard);
   const closeModal = () => setShowModal(null);
 
+  const openModalEnter = (e, selectedCard) => {
+    if (e.key === "Enter") {
+      openModal(e, selectedCard);
+    }
+  };
   const closeModalEsc = (e) => {
     if (e.key === "Escape") {
       closeModal();
@@ -29,7 +34,7 @@ const ProjectCard = ({
       <motion.div
         className="p-8 bg-gray-500 rounded"
         onClick={(e) => openModal(e, name)}
-        onKeyDown={(e) => openModal(e, name)}
+        onKeyDown={(e) => openModalEnter(e, name)}
         layoutId={name}
         tabIndex={0}
       >
@@ -51,13 +56,14 @@ const ProjectCard = ({
             focusTrapOptions={{
               // initialFocus: this.props.initialFocus, // defaultProps => '.modal-dialog .body'
               fallbackFocus: "body",
+              allowOutsideClick: true,
               // clickOutsideDeactivates: true,
             }}
           >
             <motion.div
               className="p-8 bg-gray-500 rounded overlay"
               layoutId={showModal}
-              onClick={closeModal}
+              // onClick={closeModal}
               onKeyDown={closeModalEsc}
             >
               <motion.button onClick={closeModal}>x</motion.button>
