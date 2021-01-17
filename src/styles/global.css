@@ -43,11 +43,11 @@
     bottom: 0;
     left: 50%;
     transform: translateX(-50%);
-    width: 100%;
-    max-width: 600px;
+    width: 90%;
+    /* max-width: 600px; */
   }
 
-  .overlay a {
+  /* .overlay a {
     display: block;
     position: fixed;
     top: 0;
@@ -56,7 +56,7 @@
     left: 50%;
 
     transform: translateX(-50%);
-  }
+  } */
 
   /* TODO: redo in tailwind */
   .backdrop {
