@@ -36,27 +36,12 @@
 
   .overlay {
     z-index: 1;
-    position: fixed;
     background: rgba(0, 0, 0, 0.8);
     will-change: opacity;
-    top: 0;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    /* max-width: 600px; */
+    width: 100%;
+    max-width: 600px;
+    pointer-events: none;
   }
-
-  /* .overlay a {
-    display: block;
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    width: 100vw;
-    left: 50%;
-
-    transform: translateX(-50%);
-  } */
 
   /* TODO: redo in tailwind */
   .backdrop {

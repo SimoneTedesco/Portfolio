@@ -30,8 +30,7 @@ const ProjectCard = ({
   };
   return (
     <>
-      {/* https://www.youtube.com/watch?v=N6d0uACGOVY */}
-      <motion.div
+      <motion.li
         className="p-8 bg-gray-500 rounded"
         onClick={(e) => openModal(e, name)}
         onKeyDown={(e) => openModalEnter(e, name)}
@@ -43,49 +42,20 @@ const ProjectCard = ({
             backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
             height: "200px",
           }}
-          className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
+          // className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
+          className="bg-transparent bg-cover bg-no-repeat bg-top hover:scale-110"
           // onClick={() => setShowModal(true)}
         />
         <motion.h3 className="text-2xl">{name}</motion.h3>
         <TechStack list={techStack} />
         {/* <motion.div dangerouslySetInnerHTML={{ __html }} /> */}
-      </motion.div>
-      <AnimatePresence exitBeforeEnter>
-        {showModal && (
-          <FocusTrap
-            focusTrapOptions={{
-              // initialFocus: this.props.initialFocus, // defaultProps => '.modal-dialog .body'
-              fallbackFocus: "body",
-              allowOutsideClick: true,
-              // clickOutsideDeactivates: true,
-            }}
-          >
-            <motion.div
-              className="p-8 bg-gray-500 rounded overlay"
-              layoutId={showModal}
-              // onClick={closeModal}
-              onKeyDown={closeModalEsc}
-            >
-              <motion.button onClick={closeModal}>x</motion.button>
-              <motion.div
-                style={{
-                  backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
-                  height: "200px",
-                }}
-                className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
-              />
-              <motion.h3 className="text-2xl">{name}</motion.h3>
-              <TechStack list={techStack} />
-              <motion.div dangerouslySetInnerHTML={{ __html }} />
-            </motion.div>
-          </FocusTrap>
-        )}
-      </AnimatePresence>
+      </motion.li>
     </>
   );
 };
 
 const Projects = ({ showModal, setShowModal }) => (
+  // #region
   // useEffect(() => {
   //   setInterval(() => {
   //     setShowModal(true);
@@ -102,6 +72,7 @@ const Projects = ({ showModal, setShowModal }) => (
   //     delay: 400,
   //   });
   // }, []);
+  // #endregion
 
   <StaticQuery
     query={graphql`
@@ -130,12 +101,12 @@ const Projects = ({ showModal, setShowModal }) => (
     render={(data) => (
       <section className="h-full w-full p-32 bg-red-400">
         <h2 className="text-4xl mb-4">Projects</h2>
-        <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16"
-          id="projects"
-          tabIndex={-1}
-        >
-          <AnimateSharedLayout type="crossfade">
+        <AnimateSharedLayout type="crossfade">
+          <ul
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16 relative"
+            id="projects"
+            tabIndex={-1}
+          >
             {data.allMarkdownRemark.edges.map(({ node }) => {
               const { image, name, techStack } = node.frontmatter;
               return (
@@ -151,20 +122,39 @@ const Projects = ({ showModal, setShowModal }) => (
                 />
               );
             })}
-          </AnimateSharedLayout>
-          {/* {data.allMarkdownRemark.edges.map(({ node }) => {
-            const { image, name, techStack } = node.frontmatter;
-            return (
-              <ProjectCard
-                key={node.id}
-                image={image}
-                name={name}
-                techStack={techStack}
-                __html={node.html}
-              />
-            );
-          })} */}
-        </div>
+
+            <AnimatePresence exitBeforeEnter>
+              {showModal && (
+                <FocusTrap
+                  focusTrapOptions={{
+                    fallbackFocus: "body",
+                    allowOutsideClick: true,
+                  }}
+                >
+                  <motion.div
+                    // className="p-8 bg-gray-500 rounded overlay"
+                    className="p-8 bg-gray-500 rounded absolute inset-0 m-auto overlay"
+                    layoutId={showModal}
+                    // onClick={closeModal}
+                    // onKeyDown={closeModalEsc}
+                  >
+                    {/* <motion.button onClick={closeModal}>x</motion.button> */}
+                    <motion.div
+                      style={{
+                        // backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
+                        height: "200px",
+                      }}
+                      className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
+                    />
+                    {/* <motion.h3 className="text-2xl">{name}</motion.h3>
+                    <TechStack list={techStack} />
+                    <motion.div dangerouslySetInnerHTML={{ __html }} /> */}
+                  </motion.div>
+                </FocusTrap>
+              )}
+            </AnimatePresence>
+          </ul>
+        </AnimateSharedLayout>
       </section>
     )}
   />
