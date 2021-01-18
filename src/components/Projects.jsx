@@ -62,6 +62,8 @@ const renderFullCard = (showModal, { node }) => {
   } = node;
   return (
     <motion.div
+      key={id}
+      // exit={{ opacity: 0 }}
       // className="p-8 bg-gray-500 rounded overlay"
       className="p-8 bg-gray-500 rounded absolute inset-0 m-auto overlay flex h-3/5"
       layoutId={showModal}
@@ -76,7 +78,9 @@ const renderFullCard = (showModal, { node }) => {
         }}
         className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
       /> */}
-      <motion.img src={`${image}?nf_resize=fit&w=500`} alt={name} />
+      <motion.div className="overflow-hidden w-1/2">
+        <motion.img src={`${image}?nf_resize=fit&w=500`} alt={name} />
+      </motion.div>
       <motion.div>
         <motion.h3 className="text-2xl">{name}</motion.h3>
         <TechStack list={techStack} />
