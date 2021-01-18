@@ -54,6 +54,38 @@ const ProjectCard = ({
   );
 };
 
+const renderFullCard = (showModal, { node }) => {
+  const {
+    id,
+    html: __html,
+    frontmatter: { image, name, startDate, endDate, techStack } = {},
+  } = node;
+  return (
+    <motion.div
+      // className="p-8 bg-gray-500 rounded overlay"
+      className="p-8 bg-gray-500 rounded absolute inset-0 m-auto overlay flex h-3/5"
+      layoutId={showModal}
+      // onClick={closeModal}
+      // onKeyDown={closeModalEsc}
+    >
+      {/* <motion.button onClick={closeModal}>x</motion.button> */}
+      {/* <motion.div
+        style={{
+          backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
+          height: "200px",
+        }}
+        className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
+      /> */}
+      <motion.img src={`${image}?nf_resize=fit&w=500`} alt={name} />
+      <motion.div>
+        <motion.h3 className="text-2xl">{name}</motion.h3>
+        <TechStack list={techStack} />
+        <motion.div dangerouslySetInnerHTML={{ __html }} />
+      </motion.div>
+    </motion.div>
+  );
+};
+
 const Projects = ({ showModal, setShowModal }) => (
   // #region
   // useEffect(() => {
@@ -131,25 +163,12 @@ const Projects = ({ showModal, setShowModal }) => (
                     allowOutsideClick: true,
                   }}
                 >
-                  <motion.div
-                    // className="p-8 bg-gray-500 rounded overlay"
-                    className="p-8 bg-gray-500 rounded absolute inset-0 m-auto overlay"
-                    layoutId={showModal}
-                    // onClick={closeModal}
-                    // onKeyDown={closeModalEsc}
-                  >
-                    {/* <motion.button onClick={closeModal}>x</motion.button> */}
-                    <motion.div
-                      style={{
-                        // backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
-                        height: "200px",
-                      }}
-                      className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
-                    />
-                    {/* <motion.h3 className="text-2xl">{name}</motion.h3>
-                    <TechStack list={techStack} />
-                    <motion.div dangerouslySetInnerHTML={{ __html }} /> */}
-                  </motion.div>
+                  {renderFullCard(
+                    showModal,
+                    data.allMarkdownRemark.edges.find(
+                      ({ node }) => node.frontmatter.name === showModal
+                    )
+                  )}
                 </FocusTrap>
               )}
             </AnimatePresence>
