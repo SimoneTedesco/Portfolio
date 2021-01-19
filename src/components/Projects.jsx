@@ -91,25 +91,9 @@ const renderFullCard = (showModal, { node }) => {
 };
 
 const Projects = ({ showModal, setShowModal }) => (
-  // #region
   // useEffect(() => {
-  //   setInterval(() => {
-  //     setShowModal(true);
-  //   }, 4000);
-  // }, [setShowModal]);
-  // useEffect(() => {
-  //   ScrollReveal().reveal(".grid.grid-cols-1 div.p-8:nth-child(odd)", {
-  //     interval: 200,
-  //     // reset: true,
-  //   });
-  //   ScrollReveal().reveal(".grid.grid-cols-1 div.p-8:nth-child(even)", {
-  //     interval: 200,
-  //     // reset: true,
-  //     delay: 400,
-  //   });
+  //   ScrollReveal().reveal(".grid.grid-cols-1 li.p-8");
   // }, []);
-  // #endregion
-
   <StaticQuery
     query={graphql`
       query getAllProjects {
@@ -183,6 +167,11 @@ const Projects = ({ showModal, setShowModal }) => (
   />
 );
 export default Projects;
+
+Projects.propTypes = {
+  showModal: PropTypes.string.isRequired,
+  setShowModal: PropTypes.string.isRequired,
+};
 
 ProjectCard.propTypes = {
   image: PropTypes.string.isRequired,
