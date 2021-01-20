@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 // import ScrollReveal from "scrollreveal";
 import { motion } from "framer-motion";
+import AboutMe from "./AboutMe";
 
 const Intro = () => {
   // const slideUp = {
@@ -73,6 +74,7 @@ const Intro = () => {
         Sono sempre entusiasta nell&apos;imparare nuove tecnologie e
         nell&apos;approfondire quelle che già conosco.
       </motion.p>
+      <AboutMe />
     </section>
   );
 };

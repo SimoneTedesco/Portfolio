@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
 
 const list = [
@@ -21,7 +22,13 @@ const list = [
 ];
 
 const SocialLink = ({ image, name, link }) => (
-  <a href={link} target="_blank" rel="noreferrer">
+  <motion.a
+    href={link}
+    target="_blank"
+    rel="noreferrer"
+    whileHover={{ scale: 1.1 }}
+    whileTap={{ scale: 0.9 }}
+  >
     <img
       src={image}
       alt={name}
@@ -29,21 +36,15 @@ const SocialLink = ({ image, name, link }) => (
       width="50px"
       className="rounded-full bg-white"
     />
-  </a>
+  </motion.a>
 );
 
 const AboutMe = () => (
-  <div>
-    <h2 className="text-4xl mb-4">Contatti</h2>
-    <div className="lg:flex">
-      <ContactForm />
-      <div className="flex lg:flex-col justify-evenly">
-        {list.map(({ image, name, link }) => {
-          const id = Math.random().toString(36).slice(2);
-          return <SocialLink key={id} image={image} name={name} link={link} />;
-        })}
-      </div>
-    </div>
+  <div className="flex justify-evenly mt-4 pt-12" style={{ margin: "0 25%" }}>
+    {list.map(({ image, name, link }) => {
+      const id = Math.random().toString(36).slice(2);
+      return <SocialLink key={id} image={image} name={name} link={link} />;
+    })}
   </div>
 );
 
