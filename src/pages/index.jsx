@@ -5,6 +5,7 @@ import Projects from "../components/Projects";
 import AboutMe from "../components/AboutMe";
 import Intro from "../components/Intro";
 import Modal from "../components/Modal";
+import NavBar from "../components/NavBar";
 
 const IndexPage = () => {
   const [showModal, setShowModal] = useState(null);
@@ -17,18 +18,7 @@ const IndexPage = () => {
       {/* background: linear-gradient(#3b82f6, #6e */}
       {/* This section has to be redone */}
       <Modal showModal={showModal} setShowModal={handleChange} />
-      <nav className="sticky top-0 bg-transparent">
-        <motion.h1
-          whileHover={{ scale: 1.2, rotate: 90 }}
-          whileTap={{
-            scale: 0.8,
-            rotate: -90,
-            borderRadius: "100%",
-          }}
-        >
-          &lt;SimoneTedesco /&gt;
-        </motion.h1>
-      </nav>
+      {/* <NavBar /> */}
       <Intro />
       <Labels />
       <Projects setShowModal={handleChange} showModal={showModal} />

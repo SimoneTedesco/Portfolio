@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { motion } from "framer-motion";
 import ContactForm from "./ContactForm";
 
-const list = [
+export const list = [
   {
     name: "LinkedIn",
     image: "/images/angular_simple.svg",
@@ -21,7 +21,7 @@ const list = [
   },
 ];
 
-const SocialLink = ({ image, name, link }) => (
+export const SocialLink = ({ image, name, link }) => (
   <motion.a
     href={link}
     target="_blank"

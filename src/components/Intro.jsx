@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 // import ScrollReveal from "scrollreveal";
 import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import AboutMe from "./AboutMe";
 
 const Intro = () => {
@@ -9,6 +10,10 @@ const Intro = () => {
   //   origin: "bottom",
   //   opacity: null,
   // };
+
+  const [ref, inView] = useInView({
+    threshold: 0,
+  });
 
   const variants = {
     visible: { opacity: 1, x: 0 },
@@ -30,7 +35,7 @@ const Intro = () => {
   };
 
   return (
-    <section className="h-screen w-full p-32 bg-blue-500">
+    <section className="h-screen w-full p-32 bg-blue-500" ref={ref}>
       <motion.h1
         // animate={{ rotate: 360 }}
         // transition={{ duration: 2 }}
