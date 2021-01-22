@@ -1,12 +1,24 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const NavBar = () => {
   console.log("test");
+
+  const [showNavBar, setShowNavBar] = useState(false);
   return (
-    <nav className="sticky top-0 bg-transparent">
-      <motion.h1>{inView ? "<ST />" : "<SimoneTedesco />"}</motion.h1>
-      {!inView && (
+    <>
+      <AnimatePresence>
+        {showNavBar && (
+          <motion.nav
+            className="sticky top-0 bg-black py-2"
+            // whileHover={{ paddingBottom: "30px" }}
+            initial={{ opacity: 0, y: -100 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -100 }}
+          >
+            {/* <motion.h1>{inView ? "<ST />" : "<SimoneTedesco />"}</motion.h1> */}
+            <motion.h1>{false ? "<ST />" : "<SimoneTedesco />"}</motion.h1>
+            {/* {!inView && (
         <div>
           {list.map(({ image, name, link }) => {
             const id = Math.random().toString(36).slice(2);
@@ -15,8 +27,14 @@ const NavBar = () => {
             );
           })}
         </div>
-      )}
-    </nav>
+      )} */}
+          </motion.nav>
+        )}
+      </AnimatePresence>
+      <button type="button" onClick={() => setShowNavBar(!showNavBar)}>
+        asd
+      </button>
+    </>
   );
 };
 
