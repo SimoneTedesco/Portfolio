@@ -5,12 +5,6 @@ import { useInView } from "react-intersection-observer";
 import AboutMe from "./AboutMe";
 
 const Intro = () => {
-  // const slideUp = {
-  //   distance: "150%",
-  //   origin: "bottom",
-  //   opacity: null,
-  // };
-
   const [ref, inView] = useInView({
     threshold: 0,
   });
