@@ -7,6 +7,18 @@ const NavBar = () => {
   console.log("test");
 
   const [showNavBar, setShowNavBar] = useState(true);
+
+  const variants2 = {
+    visible: (i) => ({
+      opacity: 1,
+      transition: {
+        delay: i * 0.3,
+      },
+      y: 0,
+    }),
+    hidden: { opacity: 0, y: -200 },
+  };
+
   return (
     <>
       <AnimatePresence>
@@ -22,11 +34,23 @@ const NavBar = () => {
             <motion.h1>{false ? "<ST />" : "<SimoneTedesco />"}</motion.h1>
             {/* {!inView && (
             )} */}
-            <div className="flex">
-              {list.map(({ image, name, link }) => {
+            <div className="flex gap-4">
+              {list.map(({ image, name, link }, index) => {
                 const id = Math.random().toString(36).slice(2);
                 return (
-                  <SocialLink key={id} image={image} name={name} link={link} />
+                  <motion.span
+                    custom={index}
+                    variants={variants2}
+                    animate="visible"
+                    initial="hidden"
+                  >
+                    <SocialLink
+                      key={id}
+                      image={image}
+                      name={name}
+                      link={link}
+                    />
+                  </motion.span>
                 );
               })}
             </div>
