@@ -9,17 +9,23 @@ import NavBar from "../components/NavBar";
 
 const IndexPage = () => {
   const [showModal, setShowModal] = useState(null);
+  const [showNavBar, setShowNavBar] = useState(false);
   const handleChange = (value) => {
-    // debugger
     setShowModal(value);
   };
+  const handleNavBar = (value) => {
+    if (showNavBar === value) {
+      setShowNavBar(!value);
+    }
+  };
+
   return (
     <main>
       {/* background: linear-gradient(#3b82f6, #6e */}
       {/* This section has to be redone */}
       <Modal showModal={showModal} setShowModal={handleChange} />
-      <NavBar />
-      <Intro />
+      <NavBar showNavBar={showNavBar} />
+      <Intro handleNavBar={handleNavBar} />
       <Labels />
       <Projects setShowModal={handleChange} showModal={showModal} />
       {/* REMOVE */}

@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import AboutMe from "./AboutMe";
 
-const Intro = () => {
+const Intro = ({ handleNavBar }) => {
   const [ref, inView] = useInView({
     threshold: 0,
   });
@@ -14,6 +14,9 @@ const Intro = () => {
     hidden: { opacity: 0, x: -200 },
   };
 
+  useEffect(() => {
+    handleNavBar(inView);
+  }, [handleNavBar, inView]);
   // useEffect(() => {
   //   ScrollReveal().reveal("#name", slideUp);
   // }, []);
@@ -29,7 +32,7 @@ const Intro = () => {
   };
 
   return (
-    <section className="h-screen w-full p-32 bg-blue-500" ref={ref}>
+    <section className="w-full p-32 bg-blue-500" ref={ref}>
       <motion.h1
         // animate={{ rotate: 360 }}
         // transition={{ duration: 2 }}

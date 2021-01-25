@@ -3,11 +3,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import SocialLink from "./SocialLink";
 import { list } from "./AboutMe";
 
-const NavBar = () => {
-  console.log("test");
-
-  const [showNavBar, setShowNavBar] = useState(true);
-
+const NavBar = ({ showNavBar }) => {
   const variants2 = {
     visible: (i) => ({
       opacity: 1,
@@ -57,9 +53,9 @@ const NavBar = () => {
           </motion.nav>
         )}
       </AnimatePresence>
-      <button type="button" onClick={() => setShowNavBar(!showNavBar)}>
+      {/* <button type="button" onClick={() => setShowNavBar(!showNavBar)}>
         asd
-      </button>
+      </button> */}
     </>
   );
 };
