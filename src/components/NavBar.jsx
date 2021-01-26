@@ -20,7 +20,7 @@ const NavBar = ({ showNavBar }) => {
       <AnimatePresence>
         {showNavBar && (
           <motion.nav
-            className="sticky top-0 bg-black py-2 flex justify-between"
+            className="sticky top-0 z-10 bg-black py-2 flex justify-between"
             // whileHover={{ paddingBottom: "30px" }}
             initial={{ opacity: 0, y: -100 }}
             animate={{ opacity: 1, y: 0 }}
@@ -30,26 +30,22 @@ const NavBar = ({ showNavBar }) => {
             <motion.h1>{false ? "<ST />" : "<SimoneTedesco />"}</motion.h1>
             {/* {!inView && (
             )} */}
-            <div className="flex gap-4">
+            <motion.div className="flex gap-4">
               {list.map(({ image, name, link }, index) => {
                 const id = Math.random().toString(36).slice(2);
                 return (
                   <motion.span
+                    key={id}
                     custom={index}
                     variants={variants2}
                     animate="visible"
                     initial="hidden"
                   >
-                    <SocialLink
-                      key={id}
-                      image={image}
-                      name={name}
-                      link={link}
-                    />
+                    <SocialLink image={image} name={name} link={link} />
                   </motion.span>
                 );
               })}
-            </div>
+            </motion.div>
           </motion.nav>
         )}
       </AnimatePresence>

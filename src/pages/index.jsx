@@ -20,7 +20,8 @@ const IndexPage = () => {
   };
 
   return (
-    <main>
+    // TODO mettere un bg dello stesso colore della prima section, bug navbar scroll top
+    <main className="bg-blue-500">
       {/* background: linear-gradient(#3b82f6, #6e */}
       {/* This section has to be redone */}
       <Modal showModal={showModal} setShowModal={handleChange} />
