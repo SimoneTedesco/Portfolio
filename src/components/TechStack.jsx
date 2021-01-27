@@ -15,7 +15,7 @@ const TechStack = ({ list }) => (
           alt={alt}
           src={x}
           key={x}
-          className="rounded-full pr-2"
+          className="rounded-full bg-white"
           width="30px"
           height="30px"
         />
