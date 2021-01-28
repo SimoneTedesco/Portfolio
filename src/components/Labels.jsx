@@ -40,8 +40,8 @@ const Labels = () => (
     `}
     render={(data) => (
       // <section className="flex flex-wrap my-64">
-      <section className="w-full p-32 bg-green-300">
-        <h2 className="text-4xl mb-4">Skills &amp; Tools</h2>
+      <section className="w-full p-32 bg-green-300 text-center">
+        <h2 className="text-4xl mb-4">Skills</h2>
         <div className="flex justify-between">
           {data.allMarkdownRemark.edges.map(({ node }) => {
             const { color, icon, name } = node.frontmatter;
@@ -50,7 +50,7 @@ const Labels = () => (
             );
           })}
         </div>
-        <h2 className="text-4xl mb-4">Other tools</h2>
+        {/* <h2 className="text-4xl mb-4">Other tools</h2>
         <div className="flex justify-between">
           {data.allMarkdownRemark.edges.map(({ node }) => {
             const { color, icon, name } = node.frontmatter;
@@ -58,8 +58,8 @@ const Labels = () => (
               <Label key={node.id} color={color} icon={icon} name={name} />
             );
           })}
-        </div>
-        <h2 className="text-4xl mb-4">Stuff I&apos;d like to learn</h2>
+        </div> */}
+        <h2 className="text-4xl my-4">My objectives</h2>
         {/* node.js, react native, svelte */}
         <div className="flex justify-between">
           {data.allMarkdownRemark.edges.map(({ node }) => {
