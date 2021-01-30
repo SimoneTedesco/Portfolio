@@ -1,3 +1,11 @@
+:root {
+  --rich-black: #011627;
+  --baby-powder: #fdfffc;
+  --middle-blue-green: #9ce8e0;
+  --tiffany-blue: #2ec4b6;
+  --viridian-green: #239589;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,10 +17,10 @@
     font-family: ;
     src: url();
   } */
-  body {
+  /* body {
     @apply bg-gray-800;
     @apply text-white;
-  }
+  } */
   h1 {
     @apply text-2xl;
   }
