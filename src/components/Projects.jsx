@@ -31,7 +31,7 @@ const ProjectCard = ({
   return (
     <>
       <motion.li
-        className="p-8 bg-gray-500 rounded"
+        className="p-8 bg-accent2 rounded"
         onClick={(e) => openModal(e, name)}
         onKeyDown={(e) => openModalEnter(e, name)}
         layoutId={name}
@@ -67,7 +67,7 @@ const renderFullCard = (showModal, { node }) => {
       key={id}
       // exit={{ opacity: 0 }}
       // className="p-8 bg-gray-500 rounded overlay"
-      className="p-8 bg-gray-500 rounded absolute inset-0 m-auto overlay flex h-3/5"
+      className="p-8 bg-accent2 rounded absolute inset-0 m-auto overlay flex h-3/5"
       layoutId={showModal}
       // onClick={closeModal}
       // onKeyDown={closeModalEsc}
@@ -121,7 +121,7 @@ const Projects = ({ showModal, setShowModal }) => (
       }
     `}
     render={(data) => (
-      <section className="h-full w-full p-32 bg-red-400 text-center">
+      <section className="h-full w-full p-32 text-center">
         <h2 className="text-4xl mb-4">Projects</h2>
         <AnimateSharedLayout type="crossfade">
           <ul

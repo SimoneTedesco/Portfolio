@@ -40,7 +40,7 @@ const Labels = () => (
     `}
     render={(data) => (
       // <section className="flex flex-wrap my-64">
-      <section className="w-full p-32 bg-green-300 text-center">
+      <section className="w-full p-32 text-center">
         <h2 className="text-4xl mb-4">Skills</h2>
         <div className="flex justify-between">
           {data.allMarkdownRemark.edges.map(({ node }) => {

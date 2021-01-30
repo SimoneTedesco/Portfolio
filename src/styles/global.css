@@ -17,10 +17,10 @@
     font-family: ;
     src: url();
   } */
-  /* body {
-    @apply bg-gray-800;
-    @apply text-white;
-  } */
+  body {
+    @apply bg-primary;
+    @apply text-secondary;
+  }
   h1 {
     @apply text-2xl;
   }
