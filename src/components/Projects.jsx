@@ -31,7 +31,7 @@ const ProjectCard = ({
   return (
     <>
       <motion.li
-        className="p-8 bg-accent2 rounded"
+        className="p-8 bg-secondary rounded"
         onClick={(e) => openModal(e, name)}
         onKeyDown={(e) => openModalEnter(e, name)}
         layoutId={name}
@@ -48,7 +48,7 @@ const ProjectCard = ({
           className="bg-transparent bg-cover bg-no-repeat bg-top hover:scale-110"
           // onClick={() => setShowModal(true)}
         />
-        <motion.h3 className="text-2xl">{name}</motion.h3>
+        <motion.h3 className="text-2xl text-primary">{name}</motion.h3>
         <TechStack list={techStack} />
         {/* <motion.div dangerouslySetInnerHTML={{ __html }} /> */}
       </motion.li>
@@ -67,7 +67,7 @@ const renderFullCard = (showModal, { node }) => {
       key={id}
       // exit={{ opacity: 0 }}
       // className="p-8 bg-gray-500 rounded overlay"
-      className="p-8 bg-accent2 rounded absolute inset-0 m-auto overlay flex h-3/5"
+      className="p-8 bg-secondary rounded absolute inset-0 m-auto overlay flex h-3/5"
       layoutId={showModal}
       // onClick={closeModal}
       // onKeyDown={closeModalEsc}
@@ -96,13 +96,14 @@ const Projects = ({ showModal, setShowModal }) => (
   // useEffect(() => {
   //   ScrollReveal().reveal(".grid.grid-cols-1 li.p-8");
   // }, []);
+
+  // limit: 8
   <StaticQuery
     query={graphql`
       query getAllProjects {
         allMarkdownRemark(
           filter: { fileAbsolutePath: { regex: "/projects/" } }
           sort: { fields: frontmatter___startDate, order: DESC }
-          limit: 8
         ) {
           edges {
             node {
@@ -125,7 +126,7 @@ const Projects = ({ showModal, setShowModal }) => (
         <h2 className="text-4xl mb-4">Projects</h2>
         <AnimateSharedLayout type="crossfade">
           <ul
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-16 relative"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 relative"
             id="projects"
             tabIndex={-1}
           >
