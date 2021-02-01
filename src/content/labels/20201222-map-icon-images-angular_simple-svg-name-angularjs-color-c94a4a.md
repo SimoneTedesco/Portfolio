@@ -1,5 +1,5 @@
 ---
-icon: https://cdn.worldvectorlogo.com/logos/angular-icon-1.svg
+icon: /images/angular-icon.svg
 name: AngularJS
 color: "#c94a4a"
 ---
