@@ -1,5 +1,5 @@
 ---
-icon: /images/javascript_1.svg
+icon: /images/javascript.svg
 name: Javascript
 color: "#f5e439"
 ---
