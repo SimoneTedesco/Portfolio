@@ -26,6 +26,7 @@ const Labels = () => (
                 name
                 icon
                 color
+                wishlist
               }
             }
           }
@@ -36,7 +37,7 @@ const Labels = () => (
       const skills = [];
       const wishlists = [];
       data.allMarkdownRemark.edges.forEach(({ node }) => {
-        const arr = node.frontmatter.wishlist ? skills : wishlists;
+        const arr = node.frontmatter.wishlist ? wishlists : skills;
         arr.push(node);
       });
 
