@@ -21,6 +21,12 @@ collections:
       - { label: "Icon", name: "icon", widget: "image" }
       - { label: "Name", name: "name", widget: "string" }
       - { label: "Color", name: "color", widget: "color" }
+      - {
+          label: "Wishlist",
+          name: "wishlist",
+          widget: "boolean",
+          default: false,
+        }
   - name: "project"
     label: "Project"
     folder: "src/content/projects"
