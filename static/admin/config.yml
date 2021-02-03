@@ -20,13 +20,21 @@ collections:
     fields:
       - { label: "Icon", name: "icon", widget: "image" }
       - { label: "Name", name: "name", widget: "string" }
-      - { label: "Color", name: "color", widget: "color" }
       - {
           label: "Wishlist",
           name: "wishlist",
           widget: "boolean",
           default: false,
         }
+  - name: "social"
+    label: "Social"
+    folder: "src/content/socials"
+    create: true
+    slug: "{{year}}{{month}}{{day}}-{{fields.name}}"
+    fields:
+      - { label: "Image", name: "image", widget: "image" }
+      - { label: "Name", name: "name", widget: "string" }
+      - { label: "Link", name: "link", widget: "string" }
   - name: "project"
     label: "Project"
     folder: "src/content/projects"
