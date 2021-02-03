@@ -1,4 +1,5 @@
 import React from "react";
+import { StaticQuery, graphql } from "gatsby";
 import ContactForm from "./ContactForm";
 import SocialLink from "./SocialLink";
 
@@ -21,12 +22,39 @@ export const list = [
 ];
 
 const AboutMe = () => (
-  <div className="flex justify-evenly mt-4 pt-12" style={{ margin: "0 25%" }}>
-    {list.map(({ image, name, link }) => {
-      const id = Math.random().toString(36).slice(2);
-      return <SocialLink key={id} image={image} name={name} link={link} />;
-    })}
-  </div>
+  <StaticQuery
+    query={graphql`
+      query getAllSocials {
+        allMarkdownRemark(
+          filter: { fileAbsolutePath: { regex: "/socials/" } }
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                name
+                image
+                link
+              }
+            }
+          }
+        }
+      }
+    `}
+    render={(data) => (
+      <div
+        className="flex justify-evenly mt-4 pt-12"
+        style={{ margin: "0 25%" }}
+      >
+        {data.allMarkdownRemark.edges.map(({ node }) => {
+          const { image, name, link } = node.frontmatter;
+          return (
+            <SocialLink key={node.id} image={image} name={name} link={link} />
+          );
+        })}
+      </div>
+    )}
+  />
 );
 
 export default AboutMe;
