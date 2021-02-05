@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
+import PropTypes from "prop-types";
 import { AnimatePresence, motion } from "framer-motion";
 import { StaticQuery, graphql } from "gatsby";
 import SocialLink from "./SocialLink";
-import { list } from "./AboutMe";
 
 const NavBar = ({ showNavBar }) => (
   <StaticQuery
@@ -77,3 +77,8 @@ const NavBar = ({ showNavBar }) => (
 );
 
 export default NavBar;
+
+NavBar.propTypes = {
+  showNavBar: PropTypes.oneOfType([PropTypes.string, PropTypes.bool])
+    .isRequired,
+};

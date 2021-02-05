@@ -1,6 +1,5 @@
 import React from "react";
 import { StaticQuery, graphql } from "gatsby";
-import ContactForm from "./ContactForm";
 import SocialLink from "./SocialLink";
 
 export const list = [

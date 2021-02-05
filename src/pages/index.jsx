@@ -1,8 +1,6 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import Labels from "../components/Labels";
 import Projects from "../components/Projects";
-import AboutMe from "../components/AboutMe";
 import Intro from "../components/Intro";
 import Modal from "../components/Modal";
 import NavBar from "../components/NavBar";
