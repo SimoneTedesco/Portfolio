@@ -1,33 +1,31 @@
-import React, { useEffect, useState, useRef } from "react";
+import React from "react";
 import { StaticQuery, graphql } from "gatsby";
 import PropTypes from "prop-types";
-import ScrollReveal from "scrollreveal";
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 import FocusTrap from "focus-trap-react";
 import TechStack from "./TechStack";
 
 const ProjectCard = ({
-  id,
+  // id,
   image,
   name,
   techStack,
-  __html,
-  showModal,
+  // showModal,
   setShowModal,
 }) => {
   const openModal = (e, selectedCard) => setShowModal(selectedCard);
-  const closeModal = () => setShowModal(null);
+  // const closeModal = () => setShowModal(null);
 
   const openModalEnter = (e, selectedCard) => {
     if (e.key === "Enter") {
       openModal(e, selectedCard);
     }
   };
-  const closeModalEsc = (e) => {
-    if (e.key === "Escape") {
-      closeModal();
-    }
-  };
+  // const closeModalEsc = (e) => {
+  //   if (e.key === "Escape") {
+  //     closeModal();
+  //   }
+  // };
   return (
     <>
       <motion.li
@@ -60,7 +58,8 @@ const renderFullCard = (showModal, { node }) => {
   const {
     id,
     html: __html,
-    frontmatter: { image, name, startDate, endDate, techStack } = {},
+    frontmatter: { image, name, techStack } = {},
+    // frontmatter: { image, name, startDate, endDate, techStack } = {},
   } = node;
   return (
     <motion.div
@@ -172,13 +171,18 @@ const Projects = ({ showModal, setShowModal }) => (
 export default Projects;
 
 Projects.propTypes = {
-  showModal: PropTypes.string.isRequired,
-  setShowModal: PropTypes.string.isRequired,
+  showModal: PropTypes.string,
+  setShowModal: PropTypes.func.isRequired,
+};
+
+Projects.defaultProps = {
+  showModal: null,
 };
 
 ProjectCard.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
-  techStack: PropTypes.string.isRequired,
-  __html: PropTypes.string.isRequired,
+  techStack: PropTypes.arrayOf(PropTypes.string).isRequired,
+  setShowModal: PropTypes.func.isRequired,
+  // __html: PropTypes.string.isRequired,
 };
