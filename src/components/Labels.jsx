@@ -9,7 +9,13 @@ const Label = ({ color, icon, name }) => (
   // style={{ backgroundColor: color }}
   // className="flex rounded-full h-12 mb-4 mr-4 py-2 px-4 flex-label md:flex-initial md:flex-grow"
   >
-    <img src={icon} alt={name} className="m-auto" width="40px" height="40px" />
+    <img
+      src={icon}
+      alt={name}
+      className="w-16 m-auto mb-1"
+      width="64px"
+      height="64px"
+    />
     <span className="my-auto">{name}</span>
   </div>
 );
@@ -45,7 +51,7 @@ const Labels = () => (
         // <section className="flex flex-wrap my-64">
         <section className="w-full p-32 text-center">
           <h2 className="text-4xl mb-4">Skills</h2>
-          <div className="flex justify-between">
+          <div className="flex justify-center items-end gap-5">
             {skills.map((skill) => {
               const { color, icon, name } = skill.frontmatter;
               return (
@@ -55,7 +61,7 @@ const Labels = () => (
           </div>
           <h2 className="text-4xl my-4">My objectives</h2>
           {/* node.js, react native, svelte */}
-          <div className="flex justify-between">
+          <div className="flex justify-center items-end gap-5">
             {wishlists.map((wishlist) => {
               const { color, icon, name } = wishlist.frontmatter;
               return (
