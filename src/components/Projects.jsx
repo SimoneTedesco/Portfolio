@@ -29,7 +29,7 @@ const ProjectCard = ({
   return (
     <>
       <motion.li
-        className="p-8 bg-secondary rounded"
+        className="bg-secondary rounded"
         onClick={(e) => openModal(e, name)}
         onKeyDown={(e) => openModalEnter(e, name)}
         layoutId={name}
