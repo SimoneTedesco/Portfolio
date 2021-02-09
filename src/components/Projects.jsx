@@ -29,7 +29,7 @@ const ProjectCard = ({
   return (
     <>
       <motion.li
-        className="bg-secondary rounded"
+        className="bg-secondary rounded max-w-xs w-full"
         onClick={(e) => openModal(e, name)}
         onKeyDown={(e) => openModalEnter(e, name)}
         layoutId={name}
@@ -43,7 +43,8 @@ const ProjectCard = ({
             height: "200px",
           }}
           // className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
-          className="bg-transparent bg-cover bg-no-repeat bg-top hover:scale-110"
+          // className="bg-transparent bg-cover bg-no-repeat bg-top hover:scale-110"
+          className="flex h-56 items-center justify-center overflow-hidden rounded-md"
           // onClick={() => setShowModal(true)}
         />
         <motion.h3 className="text-2xl text-primary">{name}</motion.h3>
@@ -121,11 +122,13 @@ const Projects = ({ showModal, setShowModal }) => (
       }
     `}
     render={(data) => (
-      <section className="h-full w-full p-32 text-center">
+      <section className="max-w-5xl px-6 mx-auto text-center">
+        {/* <section className="h-full w-full p-32 text-center "> */}
         <h2 className="text-4xl mb-4">Projects</h2>
         <AnimateSharedLayout type="crossfade">
           <ul
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 relative"
+            // className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 relative"
+            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 relative"
             id="projects"
             tabIndex={-1}
           >
