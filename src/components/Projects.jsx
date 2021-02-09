@@ -29,7 +29,7 @@ const ProjectCard = ({
   return (
     <>
       <motion.li
-        className="bg-secondary rounded max-w-xs w-full"
+        className="bg-secondary flex flex-col justify-between max-w-xs rounded w-full"
         onClick={(e) => openModal(e, name)}
         onKeyDown={(e) => openModalEnter(e, name)}
         layoutId={name}
@@ -38,15 +38,22 @@ const ProjectCard = ({
         whileTap={{ scale: 0.9 }}
       >
         <motion.div
-          style={{
-            backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
-            height: "200px",
-          }}
+          // style={{
+          //   backgroundImage: `url(${image}?nf_resize=fit&w=250)`,
+          //   height: "200px",
+          // }}
           // className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
           // className="bg-transparent bg-cover bg-no-repeat bg-top hover:scale-110"
-          className="flex h-56 items-center justify-center overflow-hidden rounded-md"
+          // className="flex h-56 items-center justify-center overflow-hidden rounded-md"
+          className="flex h-56"
           // onClick={() => setShowModal(true)}
-        />
+        >
+          <motion.img
+            src={`${image}?nf_resize=fit&w=250`}
+            alt={name}
+            className="w-full object-cover object-top"
+          />
+        </motion.div>
         <motion.h3 className="text-2xl text-primary">{name}</motion.h3>
         <TechStack list={techStack} />
         {/* <motion.div dangerouslySetInnerHTML={{ __html }} /> */}
