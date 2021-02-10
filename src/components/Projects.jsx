@@ -45,7 +45,7 @@ const ProjectCard = ({
           // className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
           // className="bg-transparent bg-cover bg-no-repeat bg-top hover:scale-110"
           // className="flex h-56 items-center justify-center overflow-hidden rounded-md"
-          className="flex h-56"
+          className="flex h-44"
           // onClick={() => setShowModal(true)}
         >
           <motion.img
@@ -54,7 +54,7 @@ const ProjectCard = ({
             className="w-full object-cover object-top"
           />
         </motion.div>
-        <motion.h3 className="text-2xl text-primary">{name}</motion.h3>
+        <motion.h3 className="text-2xl text-primary p-2">{name}</motion.h3>
         <TechStack list={techStack} />
         {/* <motion.div dangerouslySetInnerHTML={{ __html }} /> */}
       </motion.li>
