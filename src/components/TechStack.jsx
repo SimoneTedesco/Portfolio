@@ -7,7 +7,7 @@ const trimExt = (fileName) =>
     : fileName.split(".").slice(0, -1).join(".");
 
 const TechStack = ({ list }) => (
-  <div className="flex gap-2 p-2 justify-center">
+  <div className="flex gap-2 justify-center p-4">
     {list.map((x) => {
       const alt = trimExt(x.split("/images/")[1]);
       return (

@@ -10,6 +10,7 @@ const ProjectCard = ({
   image,
   name,
   techStack,
+  description,
   // showModal,
   setShowModal,
 }) => {
@@ -54,7 +55,12 @@ const ProjectCard = ({
             className="w-full object-cover object-top"
           />
         </motion.div>
-        <motion.h3 className="text-2xl text-primary p-2">{name}</motion.h3>
+        <motion.div className="px-2 py-4">
+          <motion.h3 className="text-2xl text-primary font-bold">
+            {name}
+          </motion.h3>
+          <motion.h4 className="text-xl text-gray-800">{description}</motion.h4>
+        </motion.div>
         <TechStack list={techStack} />
         {/* <motion.div dangerouslySetInnerHTML={{ __html }} /> */}
       </motion.li>
@@ -140,13 +146,14 @@ const Projects = ({ showModal, setShowModal }) => (
             tabIndex={-1}
           >
             {data.allMarkdownRemark.edges.map(({ node }) => {
-              const { image, name, techStack } = node.frontmatter;
+              const { image, name, techStack, description } = node.frontmatter;
               return (
                 <ProjectCard
                   key={node.id}
                   id={node.id}
                   image={image}
                   name={name}
+                  description={description || "short description"}
                   techStack={techStack}
                   __html={node.html}
                   showModal={showModal}
@@ -192,6 +199,7 @@ Projects.defaultProps = {
 ProjectCard.propTypes = {
   image: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
   techStack: PropTypes.arrayOf(PropTypes.string).isRequired,
   setShowModal: PropTypes.func.isRequired,
   // __html: PropTypes.string.isRequired,
