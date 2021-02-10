@@ -1,6 +1,6 @@
 ---
 image: /images/html5.svg
-name: Agenzia Dogane e Monopoli
+name: Lotteria degli Scontrini
 techStack:
   - /images/react.svg
   - /images/redux.svg
