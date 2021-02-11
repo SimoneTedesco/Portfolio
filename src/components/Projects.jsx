@@ -30,7 +30,7 @@ const ProjectCard = ({
   return (
     <>
       <motion.li
-        className="bg-secondary flex flex-col justify-between max-w-xs rounded w-full"
+        className="bg-secondary flex flex-col justify-between max-w-xs rounded-xl w-full overflow-hidden focus:outline-none focus:shadow-focus"
         onClick={(e) => openModal(e, name)}
         onKeyDown={(e) => openModalEnter(e, name)}
         layoutId={name}
@@ -80,7 +80,7 @@ const renderFullCard = (showModal, { node }) => {
       key={id}
       // exit={{ opacity: 0 }}
       // className="p-8 bg-gray-500 rounded overlay"
-      className="p-8 bg-secondary rounded absolute inset-0 m-auto overlay flex h-3/5"
+      className="p-8 bg-secondary rounded-xl absolute inset-0 m-auto overlay flex h-3/5"
       layoutId={showModal}
       // onClick={closeModal}
       // onKeyDown={closeModalEsc}
