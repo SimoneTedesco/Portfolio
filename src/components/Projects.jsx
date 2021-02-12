@@ -46,7 +46,7 @@ const ProjectCard = ({
           // className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
           // className="bg-transparent bg-cover bg-no-repeat bg-top hover:scale-110"
           // className="flex h-56 items-center justify-center overflow-hidden rounded-md"
-          className="flex h-44"
+          className="flex h-44 pb-2"
           // onClick={() => setShowModal(true)}
         >
           <motion.img
@@ -135,13 +135,13 @@ const Projects = ({ showModal, setShowModal }) => (
       }
     `}
     render={(data) => (
-      <section className="max-w-5xl px-6 mx-auto text-center">
+      <section className="max-w-5xl py-32 px-6 mx-auto text-center">
         {/* <section className="h-full w-full p-32 text-center "> */}
-        <h2 className="text-4xl mb-4">Projects</h2>
+        <h2 className="text-4xl mb-8">Projects</h2>
         <AnimateSharedLayout type="crossfade">
           <ul
             // className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 relative"
-            className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 relative"
+            className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 relative"
             id="projects"
             tabIndex={-1}
           >

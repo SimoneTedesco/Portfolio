@@ -5,18 +5,20 @@ import { motion } from "framer-motion";
 
 const Label = ({ color, icon, name }) => (
   <div
-  // whileHover={{ scale: 1.1 }}
-  // style={{ backgroundColor: color }}
-  // className="flex rounded-full h-12 mb-4 mr-4 py-2 px-4 flex-label md:flex-initial md:flex-grow"
+    // whileHover={{ scale: 1.1 }}
+    // style={{ backgroundColor: color }}
+    // className="flex rounded-full h-12 mb-4 mr-4 py-2 px-4 flex-label md:flex-initial md:flex-grow"
+    className="flex flex-col items-center"
   >
     <img
       src={icon}
       alt={name}
-      className="w-16 m-auto mb-1"
+      className="w-16 h-16 mb-1"
       width="64px"
       height="64px"
     />
-    <span className="my-auto">{name}</span>
+    {name}
+    {/* <span className="my-auto">{name}</span> */}
   </div>
 );
 
@@ -50,8 +52,9 @@ const Labels = () => (
       return (
         // <section className="flex flex-wrap my-64">
         <section className="w-full p-32 text-center">
-          <h2 className="text-4xl mb-4">Skills</h2>
-          <div className="flex justify-center items-end gap-5">
+          <h2 className="text-4xl mb-8">Skills</h2>
+          <div className="my-7 grid gap-5 grid-cols-3 md:grid-cols-6">
+            {/* <div className="flex justify-center items-end gap-5"> */}
             {skills.map((skill) => {
               const { color, icon, name } = skill.frontmatter;
               return (
@@ -59,9 +62,8 @@ const Labels = () => (
               );
             })}
           </div>
-          <h2 className="text-4xl my-4">My objectives</h2>
-          {/* node.js, react native, svelte */}
-          <div className="flex justify-center items-end gap-5">
+          <h2 className="text-4xl mb-8 mt-12">My objectives</h2>
+          <div className="flex justify-center items-end gap-16">
             {wishlists.map((wishlist) => {
               const { color, icon, name } = wishlist.frontmatter;
               return (
