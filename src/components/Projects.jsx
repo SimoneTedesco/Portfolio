@@ -135,13 +135,13 @@ const Projects = ({ showModal, setShowModal }) => (
       }
     `}
     render={(data) => (
-      <section className="max-w-5xl py-32 px-6 mx-auto text-center">
+      <section className="max-w-5xl py-32 px-6 mx-auto text-center relative">
         {/* <section className="h-full w-full p-32 text-center "> */}
         <h2 className="text-4xl mb-8">Projects</h2>
         <AnimateSharedLayout type="crossfade">
           <ul
             // className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 relative"
-            className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 relative"
+            className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
             id="projects"
             tabIndex={-1}
           >
@@ -161,25 +161,63 @@ const Projects = ({ showModal, setShowModal }) => (
                 />
               );
             })}
-
-            <AnimatePresence exitBeforeEnter>
-              {showModal && (
-                <FocusTrap
-                  focusTrapOptions={{
-                    fallbackFocus: "body",
-                    allowOutsideClick: true,
-                  }}
-                >
-                  {renderFullCard(
-                    showModal,
-                    data.allMarkdownRemark.edges.find(
-                      ({ node }) => node.frontmatter.name === showModal
-                    )
-                  )}
-                </FocusTrap>
-              )}
-            </AnimatePresence>
           </ul>
+
+          {/* <div class="Layout_modalBackdrop__13jVT" style="opacity: 0.8;"></div> */}
+          {/* <div class="Layout_modalContainer__yrIU9">
+            <div
+              class="Layout_modal__3vp_0"
+              style="transform-origin: 0% 100% 0px;"
+            >
+              <div
+                class="Layout_placeholder__3s90S"
+                style="transform-origin: 0% 100% 0px;"
+              >
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              <div
+                class="Layout_additional__2pewA"
+                style="transform-origin: 0% 100% 0px;"
+              >
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+              <div
+                class="Layout_modalClose__1EYbH"
+                style="opacity: 1; transform-origin: 50% 50% 0px;"
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                  <path
+                    d="M15 5L5 15M5 5l5.03 5.03L15 15"
+                    fill="transparent"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                  ></path>
+                </svg>
+              </div>
+            </div>
+          </div> */}
+          <AnimatePresence exitBeforeEnter>
+            {showModal && (
+              <FocusTrap
+                focusTrapOptions={{
+                  fallbackFocus: "body",
+                  allowOutsideClick: true,
+                }}
+              >
+                {renderFullCard(
+                  showModal,
+                  data.allMarkdownRemark.edges.find(
+                    ({ node }) => node.frontmatter.name === showModal
+                  )
+                )}
+              </FocusTrap>
+            )}
+          </AnimatePresence>
         </AnimateSharedLayout>
       </section>
     )}
