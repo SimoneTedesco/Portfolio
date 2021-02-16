@@ -80,7 +80,8 @@ const renderFullCard = (showModal, { node }) => {
       key={id}
       // exit={{ opacity: 0 }}
       // className="p-8 bg-gray-500 rounded overlay"
-      className="p-8 bg-secondary rounded-xl absolute inset-0 m-auto overlay flex h-3/5 text-primary"
+      // className="p-8 bg-secondary rounded-xl absolute inset-0 m-auto overlay flex h-3/5 text-primary"
+      className="bg-secondary text-primary rounded-xl overlay-card flex h-full w-full "
       layoutId={showModal}
       // onClick={closeModal}
       // onKeyDown={closeModalEsc}
@@ -93,7 +94,7 @@ const renderFullCard = (showModal, { node }) => {
         }}
         className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
       /> */}
-      <motion.div className="overflow-hidden w-1/2">
+      <motion.div className="overflow-hidden rounded-xl w-1/2">
         <motion.img src={`${image}?nf_resize=fit&w=500`} alt={name} />
       </motion.div>
       <motion.div>
@@ -135,89 +136,64 @@ const Projects = ({ showModal, setShowModal }) => (
       }
     `}
     render={(data) => (
-      <section className="max-w-5xl py-32 px-6 mx-auto text-center relative">
+      <section className="max-w-5xl py-32 px-6 mx-auto text-center">
         {/* <section className="h-full w-full p-32 text-center "> */}
         <h2 className="text-4xl mb-8">Projects</h2>
         <AnimateSharedLayout type="crossfade">
-          <ul
-            // className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 relative"
-            className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
-            id="projects"
-            tabIndex={-1}
-          >
-            {data.allMarkdownRemark.edges.map(({ node }) => {
-              const { image, name, techStack, description } = node.frontmatter;
-              return (
-                <ProjectCard
-                  key={node.id}
-                  id={node.id}
-                  image={image}
-                  name={name}
-                  description={description || "short description"}
-                  techStack={techStack}
-                  __html={node.html}
-                  showModal={showModal}
-                  setShowModal={setShowModal}
-                />
-              );
-            })}
-          </ul>
-
-          {/* <div class="Layout_modalBackdrop__13jVT" style="opacity: 0.8;"></div> */}
-          {/* <div class="Layout_modalContainer__yrIU9">
-            <div
-              class="Layout_modal__3vp_0"
-              style="transform-origin: 0% 100% 0px;"
+          <div className="relative">
+            <ul
+              // filter: blur(2px);
+              // className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 relative"
+              className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
+              id="projects"
+              tabIndex={-1}
             >
-              <div
-                class="Layout_placeholder__3s90S"
-                style="transform-origin: 0% 100% 0px;"
-              >
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div
-                class="Layout_additional__2pewA"
-                style="transform-origin: 0% 100% 0px;"
-              >
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div
-                class="Layout_modalClose__1EYbH"
-                style="opacity: 1; transform-origin: 50% 50% 0px;"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                  <path
-                    d="M15 5L5 15M5 5l5.03 5.03L15 15"
-                    fill="transparent"
-                    stroke-width="2"
-                    stroke="currentColor"
-                    stroke-linecap="round"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-          </div> */}
-          <AnimatePresence exitBeforeEnter>
-            {showModal && (
-              <FocusTrap
-                focusTrapOptions={{
-                  fallbackFocus: "body",
-                  allowOutsideClick: true,
-                }}
-              >
-                {renderFullCard(
-                  showModal,
-                  data.allMarkdownRemark.edges.find(
-                    ({ node }) => node.frontmatter.name === showModal
-                  )
-                )}
-              </FocusTrap>
-            )}
-          </AnimatePresence>
+              {data.allMarkdownRemark.edges.map(({ node }) => {
+                const {
+                  image,
+                  name,
+                  techStack,
+                  description,
+                } = node.frontmatter;
+                return (
+                  <ProjectCard
+                    key={node.id}
+                    id={node.id}
+                    image={image}
+                    name={name}
+                    description={description || "short description"}
+                    techStack={techStack}
+                    __html={node.html}
+                    showModal={showModal}
+                    setShowModal={setShowModal}
+                  />
+                );
+              })}
+            </ul>
+
+            <AnimatePresence exitBeforeEnter>
+              {showModal && (
+                <FocusTrap
+                  focusTrapOptions={{
+                    fallbackFocus: "body",
+                    allowOutsideClick: true,
+                  }}
+                >
+                  <>
+                    <div className="absolute-full z-0 bg-black bg-opacity-75" />
+                    <div className="absolute-full z-10 grid place-items-center">
+                      {renderFullCard(
+                        showModal,
+                        data.allMarkdownRemark.edges.find(
+                          ({ node }) => node.frontmatter.name === showModal
+                        )
+                      )}
+                    </div>
+                  </>
+                </FocusTrap>
+              )}
+            </AnimatePresence>
+          </div>
         </AnimateSharedLayout>
       </section>
     )}
