@@ -81,8 +81,9 @@ const renderFullCard = (showModal, { node }) => {
       // exit={{ opacity: 0 }}
       // className="p-8 bg-gray-500 rounded overlay"
       // className="p-8 bg-secondary rounded-xl absolute inset-0 m-auto overlay flex h-3/5 text-primary"
-      className="bg-secondary text-primary rounded-xl overlay-card flex h-full w-full "
+      className="bg-secondary text-primary rounded-xl overlay-card flex h-full w-full"
       layoutId={showModal}
+      // onClick={(e) => e.preventDefault()}
       // onClick={closeModal}
       // onKeyDown={closeModalEsc}
     >
@@ -180,15 +181,18 @@ const Projects = ({ showModal, setShowModal }) => (
                   }}
                 >
                   <>
-                    <div className="absolute-full z-0 bg-black bg-opacity-75" />
-                    <div className="absolute-full z-10 grid place-items-center">
+                    {/* <div className="absolute-full z-0 bg-black bg-opacity-75" /> */}
+                    <motion.div
+                      className="absolute-full z-10 grid place-items-center bg-black bg-opacity-75"
+                      onClick={() => setShowModal(null)}
+                    >
                       {renderFullCard(
                         showModal,
                         data.allMarkdownRemark.edges.find(
                           ({ node }) => node.frontmatter.name === showModal
                         )
                       )}
-                    </div>
+                    </motion.div>
                   </>
                 </FocusTrap>
               )}

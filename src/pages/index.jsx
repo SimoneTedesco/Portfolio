@@ -22,7 +22,7 @@ const IndexPage = () => {
     <main>
       {/* background: linear-gradient(#3b82f6, #6e */}
       {/* This section has to be redone */}
-      <Modal showModal={showModal} setShowModal={handleChange} />
+      {/* <Modal showModal={showModal} setShowModal={handleChange} /> */}
       <NavBar showNavBar={showNavBar} />
       <Intro handleNavBar={handleNavBar} />
       <Labels />
