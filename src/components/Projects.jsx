@@ -11,7 +11,7 @@ const ProjectCard = ({
   name,
   techStack,
   description,
-  // showModal,
+  showModal,
   setShowModal,
 }) => {
   const openModal = (e, selectedCard) => setShowModal(selectedCard);
@@ -30,7 +30,9 @@ const ProjectCard = ({
   return (
     <>
       <motion.li
-        className="bg-secondary flex flex-col justify-between max-w-xs rounded-xl w-full overflow-hidden focus:outline-none focus:shadow-focus"
+        className={`bg-secondary flex flex-col justify-between max-w-xs rounded-xl w-full overflow-hidden focus:outline-none focus:shadow-focus ${
+          showModal && "filter-opacity"
+        }`}
         onClick={(e) => openModal(e, name)}
         onKeyDown={(e) => openModalEnter(e, name)}
         layoutId={name}
@@ -141,10 +143,11 @@ const Projects = ({ showModal, setShowModal }) => (
         {/* <section className="h-full w-full p-32 text-center "> */}
         <h2 className="text-4xl mb-8">Projects</h2>
         <AnimateSharedLayout type="crossfade">
-          <div className="relative">
+          <div className="relative p-4">
             <ul
               // filter: blur(2px);
               // className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-16 relative"
+
               className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3"
               id="projects"
               tabIndex={-1}
@@ -182,7 +185,7 @@ const Projects = ({ showModal, setShowModal }) => (
                 >
                   <>
                     <motion.div
-                      className="absolute-full z-0 bg-black bg-opacity-75"
+                      className="absolute-full z-0 "
                       onClick={() => setShowModal(null)}
                     />
                     <motion.div className="absolute-full z-10 grid place-items-center pointer-events-none">
@@ -219,6 +222,7 @@ ProjectCard.propTypes = {
   name: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
   techStack: PropTypes.arrayOf(PropTypes.string).isRequired,
+  showModal: PropTypes.bool.isRequired,
   setShowModal: PropTypes.func.isRequired,
   // __html: PropTypes.string.isRequired,
 };
