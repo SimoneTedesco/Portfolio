@@ -101,11 +101,19 @@ const renderFullCard = (showModal, { node }) => {
         <motion.img src={`${image}?nf_resize=fit&w=500`} alt={name} />
         {/* Might add slideshow thubnails here */}
       </motion.div>
-      <motion.div className="w-1/2 p-2">
+      <motion.div className="flex flex-col p-2 w-1/2">
         <motion.h3 className="text-2xl">{name}</motion.h3>
         <motion.div dangerouslySetInnerHTML={{ __html }} />
         <TechStack list={techStack} />
-        <hr />
+        <motion.div className="flex justify-end border-t p-2 mt-auto">
+          <motion.a
+            href="#"
+            target="_blank"
+            className="bg-accent hover:bg-accent2 py-1 px-4 text-secondary"
+          >
+            LINK
+          </motion.a>
+        </motion.div>
       </motion.div>
     </motion.div>
   );

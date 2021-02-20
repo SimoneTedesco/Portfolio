@@ -41,7 +41,7 @@ const NavBar = ({ showNavBar }) => (
           <AnimatePresence>
             {showNavBar && (
               <motion.nav
-                className="sticky top-0 z-10 bg-black py-2 flex justify-between"
+                className="sticky top-0 z-20 bg-black py-2 flex justify-between"
                 // whileHover={{ paddingBottom: "30px" }}
                 initial={{ opacity: 0, y: -100 }}
                 animate={{ opacity: 1, y: 0 }}
