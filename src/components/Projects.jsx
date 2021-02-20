@@ -83,7 +83,7 @@ const renderFullCard = (showModal, { node }) => {
       // exit={{ opacity: 0 }}
       // className="p-8 bg-gray-500 rounded overlay"
       // className="p-8 bg-secondary rounded-xl absolute inset-0 m-auto overlay flex h-3/5 text-primary"
-      className="bg-secondary text-primary rounded-xl overlay-card flex h-full w-full pointer-events-auto"
+      className="bg-secondary text-primary rounded-xl overlay-card flex h-full w-full pointer-events-auto p-4"
       layoutId={showModal}
       // onClick={(e) => false}
       // onClick={closeModal}
@@ -99,11 +99,13 @@ const renderFullCard = (showModal, { node }) => {
       /> */}
       <motion.div className="overflow-hidden rounded-xl w-1/2">
         <motion.img src={`${image}?nf_resize=fit&w=500`} alt={name} />
+        {/* Might add slideshow thubnails here */}
       </motion.div>
-      <motion.div>
+      <motion.div className="w-1/2 p-2">
         <motion.h3 className="text-2xl">{name}</motion.h3>
-        <TechStack list={techStack} />
         <motion.div dangerouslySetInnerHTML={{ __html }} />
+        <TechStack list={techStack} />
+        <hr />
       </motion.div>
     </motion.div>
   );
