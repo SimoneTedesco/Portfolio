@@ -149,7 +149,7 @@ const Projects = ({ showModal, setShowModal }) => (
       }
     `}
     render={(data) => (
-      <section className="max-w-5xl py-32 px-6 mx-auto text-center">
+      <section className="max-w-6xl py-32 px-6 mx-auto text-center">
         {/* <section className="h-full w-full p-32 text-center "> */}
         <h2 className="text-4xl mb-8">Projects</h2>
         <AnimateSharedLayout type="crossfade">
