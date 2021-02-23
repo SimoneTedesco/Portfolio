@@ -48,7 +48,7 @@ const ProjectCard = ({
           // className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
           // className="bg-transparent bg-cover bg-no-repeat bg-top hover:scale-110"
           // className="flex h-56 items-center justify-center overflow-hidden rounded-md"
-          className="flex h-44 pb-2"
+          className="flex h-48 pb-2"
           // onClick={() => setShowModal(true)}
         >
           <motion.img
@@ -57,7 +57,7 @@ const ProjectCard = ({
             className="w-full object-cover object-top"
           />
         </motion.div>
-        <motion.div className="px-2 py-4">
+        <motion.div className="px-2 py-8">
           <motion.h3 className="text-2xl text-primary font-bold">
             {name}
           </motion.h3>
