@@ -30,7 +30,7 @@ const ProjectCard = ({
   return (
     <>
       <motion.li
-        className={`bg-secondary flex flex-col justify-between max-w-xs rounded-xl w-full overflow-hidden focus:outline-none focus:shadow-focus ${
+        className={`bg-secondary flex flex-col justify-between max-w-xs rounded-xl w-full overflow-hidden focus:outline-none focus:shadow-focus hover:shadow-focus ${
           showModal && "filter-opacity"
         }`}
         onClick={(e) => openModal(e, name)}
