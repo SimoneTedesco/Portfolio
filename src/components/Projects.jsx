@@ -97,7 +97,7 @@ const renderFullCard = (showModal, { node }) => {
         }}
         className="bg-transparent bg-cover bg-no-repeat bg-top cover-transition hover:bg-bottom transform hover:scale-110"
       /> */}
-      <motion.div className="overflow-hidden rounded-xl w-1/2">
+      <motion.div className="overflow-y-auto no-scrollbar rounded-xl w-1/2">
         <motion.img src={`${image}?nf_resize=fit&w=500`} alt={name} />
         {/* Might add slideshow thubnails here */}
       </motion.div>
