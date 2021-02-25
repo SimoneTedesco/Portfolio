@@ -1,5 +1,5 @@
 ---
-image: /images/html5.svg
+image: /images/layout_set_logo.png
 name: Lotteria degli Scontrini
 description: Web app per la gestione e il monitoraggio delle estrazioni
 techStack:
