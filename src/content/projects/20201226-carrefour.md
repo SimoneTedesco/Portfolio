@@ -1,6 +1,7 @@
 ---
-image: /images/bootstrap.svg
+image: /images/1200px-carrefour_logo.svg.png
 name: Carrefour Backoffice
+description: Backoffice App
 techStack:
   - /images/angular_simple.svg
   - /images/jquery_logo.svg
