@@ -3,12 +3,15 @@ image: /images/1200px-carrefour_logo.svg.png
 name: Carrefour Backoffice
 description: Backoffice App
 techStack:
-  - /images/angular_simple.svg
   - /images/jquery_logo.svg
+  - /images/angular-icon.svg
 startDate: 2017-06-05T22:00:00.000Z
 endDate: 2019-09-05T22:00:00.000Z
 ---
-Mi sono occupato dello sviluppo della parte Front-End in un sito di BackOffice.
-I linguaggi che ho utilizzato maggiormente sono stati **HTML5, JavaScript/JQuery, CSS3**.
-La mia attività consisteva nella creazione o modifica di pagine web dinamiche responsive, utilizzando
-il **framework AngularJS**.
+Sviluppo di un'applicazione di backoffice per la gestione e il rifornimento dei punti vendita della catena.
+
+Utilizzando **AngularJS** e **JQuery** sono state realizzate feature accessibili ad utenti di diverso livello.
+
+* Creazione di interfacce utente responsive
+* Focus sulle performance delle pagine
+* Customizzazione delle griglie implementate sviluppate con la libreria [ui-grid](https://github.com/angular-ui/ui-grid)
