@@ -7,6 +7,10 @@ techStack:
 startDate: 2018-01-08T23:00:00.000Z
 endDate: 2020-01-08T23:00:00.000Z
 ---
-Interactive In-store totem.
+Sviluppo di un'applicazione, eseguita sui totem presenti nei punti vendita, che permette la gestione delle carte fedeltà.
 
-**React, flux**
+Utilizzando **AngularJS** e **JQuery** sono state realizzate feature accessibili ad utenti di diverso livello.
+
+* Creazione di interfacce utente responsive
+* Focus sulle performance delle pagine
+* Customizzazione delle griglie implementate sviluppate con la libreria [ui-grid](https://github.com/angular-ui/ui-grid)
