@@ -52,9 +52,9 @@ const ProjectCard = ({
           // onClick={() => setShowModal(true)}
         >
           <motion.img
-            src={`${image}?nf_resize=fit&w=250`}
+            src={`${image}?nf_resize=fit&w=350`}
             alt={name}
-            className="w-full object-cover object-top"
+            className="w-full object-contain p-6 object-center"
           />
         </motion.div>
         <motion.div className="px-2 py-8">
