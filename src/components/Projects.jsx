@@ -79,6 +79,7 @@ const renderFullCard = (showModal, { node }) => {
   } = node;
   return (
     <motion.div
+      drag
       key={id}
       // exit={{ opacity: 0 }}
       // className="p-8 bg-gray-500 rounded overlay"
