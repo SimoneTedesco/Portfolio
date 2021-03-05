@@ -103,7 +103,10 @@ const renderFullCard = (showModal, { node }) => {
       </motion.div>
       <motion.div className="flex flex-col p-2 w-1/2">
         <motion.h3 className="text-2xl">{name}</motion.h3>
-        <motion.div dangerouslySetInnerHTML={{ __html }} />
+        <motion.div
+          className="overflow-y-auto"
+          dangerouslySetInnerHTML={{ __html }}
+        />
         <TechStack list={techStack} />
         <motion.div className="flex justify-end border-t p-2 mt-auto">
           <motion.a
