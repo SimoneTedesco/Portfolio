@@ -51,7 +51,7 @@ const Labels = () => (
 
       return (
         // <section className="flex flex-wrap my-64">
-        <section className="w-full p-32 text-center">
+        <section className="w-full h-screen bg-primary p-32 text-center">
           <h2 className="text-4xl mb-8">Skills</h2>
           <div className="my-7 grid gap-5 grid-cols-3 md:grid-cols-6">
             {/* <div className="flex justify-center items-end gap-5"> */}

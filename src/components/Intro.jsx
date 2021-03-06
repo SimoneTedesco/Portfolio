@@ -32,7 +32,7 @@ const Intro = ({ handleNavBar }) => {
   };
 
   return (
-    <section className="w-full p-32 text-center" ref={ref}>
+    <section className="w-full h-screen p-32 text-center" ref={ref}>
       <motion.h1
         // animate={{ rotate: 360 }}
         // transition={{ duration: 2 }}
