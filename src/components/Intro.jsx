@@ -49,7 +49,9 @@ const Intro = ({ handleNavBar }) => {
           {/* <span className="text-6xl" contentEditable> */}
           Simone Tedesco
         </span>
+        Mi chiamo Simone Tedesco
       </motion.h1>
+      <motion.h2>Sono uno sviluppatore Front-End</motion.h2>
       <motion.p
         custom={1}
         variants={variants2}
